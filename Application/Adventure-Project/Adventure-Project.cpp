@@ -69,7 +69,45 @@ void mainMenu()
 {
 	Logo();
 
-	
+	int counter = 1;
+	char key;
+
+	while(true)
+	{
+		if (counter >= 1 && counter <= 2)
+			displayColor[counter - 1] = RED;
+
+		gotoxy(xStartPosition, 10);
+		colorSelection(displayColor[0]);
+		cout << "1. Start";
+
+		
+
+		key = _getch();
+
+		if (key == 72 && (counter >= 2 && counter <= 4)) // 72 - up arrow (keyboard)
+			counter--;
+		if (key == 80 && (counter >= 1 && counter <= 3)) // 80 - down arrow (keyboard)
+			counter++;
+
+		//carriage return - enter (keyboard)
+		if (key == '\r')
+		{
+			for (int i = 0; i < 4; i++)
+				displayColor[i] = WHITE;
+
+			system("CLS");
+
+			if (counter == 1)
+			{
+				
+				break;
+			}
+			
+		}
+		for (int i = 0; i < 4; i++)
+			displayColor[i] = WHITE;
+	}
 }
 
 int main()
