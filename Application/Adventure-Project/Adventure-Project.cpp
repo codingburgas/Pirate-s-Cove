@@ -81,19 +81,21 @@ void mainMenu()
 		colorSelection(displayColor[0]);
 		cout << "1. Start";
 
-		
+		gotoxy(xStartPosition, 11);
+		colorSelection(displayColor[1]);
+		cout << "2. Exit";
 
 		key = _getch();
 
-		if (key == 72 && (counter >= 2 && counter <= 4)) // 72 - up arrow (keyboard)
+		if (key == 72 && (counter == 2)) // 72 - up arrow (keyboard)
 			counter--;
-		if (key == 80 && (counter >= 1 && counter <= 3)) // 80 - down arrow (keyboard)
+		if (key == 80 && (counter == 1)) // 80 - down arrow (keyboard)
 			counter++;
 
 		//carriage return - enter (keyboard)
 		if (key == '\r')
 		{
-			for (int i = 0; i < 4; i++)
+			for (int i = 0; i < 2; i++)
 				displayColor[i] = WHITE;
 
 			system("CLS");
@@ -103,9 +105,12 @@ void mainMenu()
 				
 				break;
 			}
-			
+			else if (counter == 2)
+			{
+				exit(EXIT_SUCCESS);
+			}
 		}
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < 2; i++)
 			displayColor[i] = WHITE;
 	}
 }
