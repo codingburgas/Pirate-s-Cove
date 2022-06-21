@@ -64,6 +64,39 @@ void Logo()
 
 void mainMenu();
 
+void game()
+{
+	bool mBar = false;
+	int playerHealth = 10;
+	int playerDamage = 1;
+	char key;
+
+	cout << "You wake up and find yourself on a deserted island. You've just survived a shipwreck and you are now looking for a way to survive. As you're standing on the warm sand, you're scouting out the area nearby. You see a metal bar. It could be used as a weapon. Do you take it? (DMG: 3)" << endl;
+	cout << "Y/N" << endl;
+
+	key = _getch();
+
+	if (key == 'Y')
+	{
+		mBar = true;
+		
+	}
+	else
+	{
+		cout << "You don't have a weapon";
+	}
+
+	system("CLS");
+
+	cout << "You see a cave and a jungle. Where should you go?" << endl;
+	cout << "C/J" << endl;
+
+	if (key == 'C')
+	{
+		cout << " You";
+	}
+
+}
 
 void mainMenu()
 {
@@ -102,7 +135,7 @@ void mainMenu()
 
 			if (counter == 1)
 			{
-				
+				game();
 				break;
 			}
 			else if (counter == 2)
