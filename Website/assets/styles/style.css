@@ -55,3 +55,28 @@ a:hover {
 a:hover::before{
   width: 120%;
 }
+
+.home { 
+  overflow: scroll;
+  height: 100vh;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-type: y mandatory;
+}
+
+.welcome-section, .download-section, .contact-section {
+  height: 100vh;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+.welcome-section {
+  background-color: blue;
+}
+
+.download-section {
+  background-color: yellow;
+}
+
+.contact-section {
+  background-color: red;
+}

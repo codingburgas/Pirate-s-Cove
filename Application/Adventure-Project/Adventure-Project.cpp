@@ -105,10 +105,8 @@ void game()
 
 	key = _getch();
 
-	if (key == 'Y')
+	if (key == 'Y' || key == 'y')
 		mBar = true;
-	else
-		cout << "You don't have a weapon.";
 
 	system("CLS");
 
