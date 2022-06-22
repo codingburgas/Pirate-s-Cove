@@ -11,4 +11,4 @@ $sm = new RainTPL();
 raintpl::$tpl_dir = $install_path."templates/"; // template directory
 raintpl::$cache_dir = $install_path."cache/"; // cache directory
 
-$sm->display("index.html");
+$sm->display("login.html");
