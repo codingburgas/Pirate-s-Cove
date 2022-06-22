@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <iomanip>
 #include <thread>
 #include <stdio.h>
@@ -77,23 +77,57 @@ void game()
 	key = _getch();
 
 	if (key == 'Y')
-	{
 		mBar = true;
-		
-	}
 	else
-	{
-		cout << "You don't have a weapon";
-	}
+		cout << "You don't have a weapon.";
 
 	system("CLS");
 
-	cout << "You see a cave and a jungle. Where should you go?" << endl;
+	cout << "You see a cave and a jungle. Where do you want to go?" << endl;
 	cout << "C/J" << endl;
+	 
+	key = _getch();
 
 	if (key == 'C')
 	{
-		cout << " You";
+		cout << " You entered the cave. It is really dark inside. You find a torch on the wall." << endl;
+		Sleep(200);
+		cout << " After a long walk, you find two tunnels. On the floor in front of them you see two numbers - 8478(left) and 8368(right)" << endl;
+		Sleep(200);
+		cout << " Unsure which one to pick, you find a message on the wall nearby." << endl;
+		cout << R"(
+           .-.---------------------------------.-.
+          ((o))                                   )
+           \U/_______          _____         ____/
+             |                                  |
+             |                                  |
+             |									|
+             |          3	  1		4			|
+             |                                  |
+             |                      *           |
+             |							        |
+             |                2     7           |
+             |                                  |
+             |                                  |
+             |                                  |
+             |____    _______    __  ____    ___|KCK
+            /A\                                  \
+           ((o))                                  )
+            '-'----------------------------------')" << endl << endl;
+		cout << "Choose a tunnel(L/R): ";
+
+		key = _getch();
+
+		if (key == 'L')
+		{
+			cout << "Something happens.";
+		}
+		else
+		{
+			cout << "When you go in the right tunnel, suddenly you feel the ground slowly breaking. The entrance gets covered by a big rock. You fall to your death.";
+			Sleep(200);
+			system("CLS");
+		}
 	}
 
 }
