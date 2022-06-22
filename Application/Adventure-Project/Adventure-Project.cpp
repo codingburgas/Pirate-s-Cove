@@ -95,7 +95,7 @@ void gameOver()
 
 void game()
 {
-	bool mBar = false;
+	
 	int playerHealth = 10;
 	int playerDamage = 1;
 	char key;
@@ -106,7 +106,7 @@ void game()
 	key = _getch();
 
 	if (key == 'Y' || key == 'y')
-		mBar = true;
+		playerDamage += 2;
 
 	system("CLS");
 
@@ -115,7 +115,7 @@ void game()
 	 
 	key = _getch();
 
-	if (key == 'C')
+	if (key == 'C' || key == 'c')
 	{
 		cout << " You entered the cave. It is really dark inside. You find a torch on the wall." << endl;
 		Sleep(200);
@@ -145,16 +145,18 @@ void game()
 
 		key = _getch();
 
-		if (key == 'L')
+		if (key == 'L' || key == 'l')
 		{
-			cout << "Something happens.";
+			cout << "As you enter the left tunnel, you notice a small box on a stone pedestal. Inside you find a talisman. Wearing it makes you feel more alive!" << endl;
+			playerHealth += 2;
 		}
 		else
 		{
 			cout << "When you go in the right tunnel, suddenly you feel the ground slowly breaking. The entrance gets covered by a big rock. You fall to your death.";
-			Sleep(200);
-			system("CLS");
 		}
+
+		cout << "As you continue your journey through the barely-lit tunnel, you end up at a huge cavern. A wolf spots you and it looks angry!" << endl;
+
 	}
 
 }
