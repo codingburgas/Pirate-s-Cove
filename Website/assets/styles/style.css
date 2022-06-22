@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap');
+
 body {
   margin: 0;
-  overflow: hidden;
-  height: 100vh;
+  height: 100%;
+}
+
+h1 {
+  margin: 0;
 }
 
 nav {
@@ -55,4 +61,42 @@ a:hover {
 
 a:hover::before{
   width: 120%;
+}
+
+.home {
+  height: 100%;
+  background: rgb(34,75,195);
+  background: linear-gradient(0deg, rgba(34,75,195,1) 0%, rgba(57,106,228,1) 50%, rgba(45,224,253,1) 100%);
+    background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section-one, .section-two, .section-three {
+  height: 55vh;
+}
+
+.section-one {
+  display: flex;
+  padding: 10%;
+}
+
+.section-one > .column {
+  text-align: center;
+  flex: 50%;
+}
+
+.column > h1 {
+  font-family: 'Arvo', serif;
+  font-size: 4em;
+}
+
+.column > p {
+  width: ;
+  font-family: 'Lora', serif;
+  font-size: 1.5em;
+}
+
+.column {
+  margin-left: 5%;
 }
