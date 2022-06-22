@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400&display=swap');
 body {
   margin: 0;
+  overflow: hidden;
+  height: 100vh;
 }
 
 nav {
@@ -40,7 +42,6 @@ a:before{
   content: '';
   background: #54b3d6;
   display: block;
-  position: absolute;
   bottom: -3px;
   left: -5px;
   width: 0;
@@ -54,29 +55,4 @@ a:hover {
 
 a:hover::before{
   width: 120%;
-}
-
-.home { 
-  overflow: scroll;
-  height: 100vh;
-  scroll-snap-points-y: repeat(100vh);
-  scroll-snap-type: y mandatory;
-}
-
-.welcome-section, .download-section, .contact-section {
-  height: 100vh;
-  scroll-snap-align: start;
-  position: relative;
-}
-
-.welcome-section {
-  background-color: blue;
-}
-
-.download-section {
-  background-color: yellow;
-}
-
-.contact-section {
-  background-color: red;
 }
