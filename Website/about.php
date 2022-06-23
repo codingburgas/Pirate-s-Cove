@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ERROR);
@@ -11,4 +13,5 @@ $sm = new RainTPL();
 raintpl::$tpl_dir = $install_path."templates/"; // template directory
 raintpl::$cache_dir = $install_path."cache/"; // cache directory
 
+$sm->assign("session",$_SESSION);
 $sm->display("about.html");

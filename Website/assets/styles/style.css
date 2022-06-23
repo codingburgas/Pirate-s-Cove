@@ -64,3 +64,9 @@ li > a:hover {
 li > a:hover::before{
   width: 120%;
 }
+
+.error {
+  color: red;
+  font-weight: bold;
+  padding: 5px;
+}

@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="assets/styles/registration-style.css">
 
 <div class="container">
-      <form action="">
+      <form action="inc/signup.inc.php" method="post">
         <h1 class="form-title">Sign Up</h1>
          <label for="email">Email</label>
          <br>
@@ -12,11 +12,14 @@
          <br>
          <input type="password" id="password" name="password" placeholder="Your password.." required>
          <br>
-         <label for="password">Repeat Password</label>
+         <label for="repassword">Repeat Password</label>
          <br>
-         <input type="password" id="password" name="password" placeholder="Your password.." required>
+         <input type="password" id="repassword" name="repassword" placeholder="Your password.." required>
          <br>
-        <input type="submit" value="Submit">
+
+         <?php echo $msg;?>
+
+        <input type="submit" value="Submit" name="submit">
       </form>
 </div>
 

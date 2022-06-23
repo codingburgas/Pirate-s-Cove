@@ -22,5 +22,12 @@ if(isset($_GET["error"])) {
 	}
 }
 
-$sm->assign("msg", $msg);
-$sm->display("signup.html");
+if (!(isset($_SESSION['ime'])))
+{
+	header("Location: ./login.php");
+	exit();
+}
+
+$sm->assign("get",$_GET);
+$sm->assign("session",$_SESSION);
+$sm->display("settings.html");

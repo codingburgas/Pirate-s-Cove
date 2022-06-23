@@ -11,9 +11,16 @@
 
   <nav>
     <ul>
-      <li><a href="index.php">Home</a></li>
-      <li><a href="about.php">About Us</a></li>
-      <li><a href="signup.php">Sign Up</a></li>
-      <li><a href="login.php">Log In</a></li>
+        {if="$session.ime"}
+          <li><a href="index.php">Home</a></li>
+          <li><a href="about.php">About Us</a></li>
+          <li><a href="settings.php">Settings</a></li>
+          <li><a href="inc/logout.inc.php">Logout</a></li>
+        {else}
+          <li><a href="index.php">Home</a></li>
+          <li><a href="about.php">About Us</a></li>
+          <li><a href="signup.php">Sign Up</a></li>
+          <li><a href="login.php">Log In</a></li>
+        {/if}
     </ul>
   </nav>

@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="assets/styles/registration-style.css">
 
 <div class="container">
-      <form action="">
+      <form action="inc/login.inc.php" method="post">
         <h1 class="form-title">Log In</h1>
          <label for="email">Email</label>
          <br>
@@ -12,7 +12,7 @@
          <br>
          <input type="password" id="password" name="password" placeholder="Your password.." required>
          <br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" name="submit">
       </form>
 </div>
 
