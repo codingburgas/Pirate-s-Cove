@@ -194,7 +194,7 @@ void game()
 			if (playerHealth <= 0)
 			{
 				cout << "You died! Game over!";
-		
+				
 			}
 			else if (wolfHP <= 0)
 			{
