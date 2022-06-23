@@ -22,7 +22,7 @@ ul {
   overflow: hidden;
   display: flex;
   justify-content: center;  
-  background:white;
+  background-color:white;
 }
 
 li {

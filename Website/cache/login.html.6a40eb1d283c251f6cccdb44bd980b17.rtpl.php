@@ -12,7 +12,9 @@
          <br>
          <input type="password" id="password" name="password" placeholder="Your password.." required>
          <br>
+
          <?php echo $msg;?>
+         
         <input type="submit" value="Submit" name="submit">
       </form>
 </div>
