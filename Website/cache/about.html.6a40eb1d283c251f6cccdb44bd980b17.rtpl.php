@@ -65,7 +65,7 @@
       <div class="text-box">
 		<div style="display: flex;">
 			<h3 style="flex: 50%">Ivan Dochev</h3>
-        	<img class="image" alt="Ivan Dochev" src="assets/Images/dochev.jpg">  
+        	<img class="image" alt="Ivan Dochev" src="assets/Images/dochev.png">  
 		</div>  
         <p>
           One of our frontend-developers. He contributed to creating the website.
@@ -74,7 +74,7 @@
       <div class="text-box">
 		<div style="display: flex;">
 			<h3 style="flex: 50%">Kaloyan Georgiev</h3>
-        	<img class="image" alt="Kaloyan Georgiev" src="assets/Images/georgiev.jpg">  
+        	<img class="image" alt="Kaloyan Georgiev" src="assets/Images/georgiev.png">  
 		</div>  
         <p>
 		 One of our frontend-developers. he helped with the about us page.
