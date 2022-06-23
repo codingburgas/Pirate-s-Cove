@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2022 at 03:26 PM
+-- Generation Time: Jun 23, 2022 at 03:28 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -32,13 +32,6 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `email`, `password`) VALUES
-(1, 'bpboyadzhiev20@codingburgas.bg', '$2y$10$JDeRVjrjla/g0DNpNQ041e5O6gJldhuo2eE/XCe6.1tGH.P9GzZe2');
 
 --
 -- Indexes for dumped tables
