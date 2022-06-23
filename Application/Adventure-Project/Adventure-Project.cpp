@@ -265,21 +265,16 @@ void game()
 
 	else if (key == 'J' || key == 'j')
 	{
-		cout << "You enter the jungle.";
-	}
-
-	else
-	{
-		cout << "Please choose a valid location!";
-		key = _getch();
-	}
-	else if (key == 'J' || key == 'j')
-	{
 		cout << "You head towards the jungle, not knowing what you'll find there." << endl;
+
 		Sleep(200);
+
 		cout << "While walking, you notice an ancient temple, a dim light glowing within it. You decide to investigate." << endl;
+
 		Sleep(200);
+
 		cout << "As you're going down the stairs, a trap locks you in place and symbols on the wall start to glow. You read the message which says:" << endl;
+
 		cout << R"(
 		I provide light but I'm not a candle
 
@@ -308,6 +303,12 @@ void game()
 			cout << "As soon as you select the option, the trap squeezes you even tighter and a giant rock crushes you." << endl;
 		}
 	}
+	else
+	{
+		cout << "Please choose a valid location!";
+		key = _getch();
+	}
+	
 
 }
 
