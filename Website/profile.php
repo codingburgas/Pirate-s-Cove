@@ -20,7 +20,7 @@ if (!(isset($_SESSION['ime'])))
 	exit();
 }
 
-$sql = "SELECT * FROM users ";
+$sql = "SELECT * FROM users WHERE email = '". $_SESSION['ime'] ."'";
 $result = mysqli_query($conn, $sql);
 
 while ($row = mysqli_fetch_assoc($result)) {
