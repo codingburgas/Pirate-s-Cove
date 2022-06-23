@@ -93,7 +93,7 @@ function loginUser($conn, $email, $password) {
 		else if ($checkPassword === true) {
 			session_start();
 			$_SESSION['ime'] = $emailExists['email'];
-			header('Location: ../settings.php?login=success');
+			header('Location: ../profile.php?login=success');
 			exit();	
 		}		
 }

@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+html {
+  min-height: 100%;
+}
+body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+	background: rgb(179,63,251);
+	background: radial-gradient(circle, rgba(179,63,251,1) 0%, rgba(76,70,252,1) 100%);
+ 	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: contain;
+}
+
+.welcome-heading {
+	text-align: center;
+	padding-top: 50px;
+	color: #ACD1AF;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.inventory {
+	padding-top: 5%;
+	padding-bottom: 5%;
+	padding-left: 10%;
+	padding-right: 10%;
+	text-align: center;
+}
+
+.inventory > h1 {
+	text-align: left;
+	font-family: 'Varela Round', sans-serif;
+}
+
+.items {
+	margin-left: 20%;
+	margin-right: 20%;
+}

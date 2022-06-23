@@ -14,7 +14,7 @@
         <?php if( $session["ime"] ){ ?>
           <li><a href="index.php">Home</a></li>
           <li><a href="about.php">About Us</a></li>
-          <li><a href="settings.php">Settings</a></li>
+          <li><a href="profile.php">Profile</a></li>
           <li><a href="inc/logout.inc.php">Logout</a></li>
         <?php }else{ ?>
           <li><a href="index.php">Home</a></li>

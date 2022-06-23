@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap');
 
 body {
   margin: 0;
@@ -69,4 +70,13 @@ li > a:hover::before{
   color: red;
   font-weight: bold;
   padding: 5px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.success {
+  text-align: center;
+  color: #ACD1AF;
+  font-weight: bold;
+  padding: 5px;
+  font-family: 'Montserrat', sans-serif;
 }

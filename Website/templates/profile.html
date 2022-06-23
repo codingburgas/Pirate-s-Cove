@@ -1,0 +1,29 @@
+{include="header.html"}
+<link rel="stylesheet" type="text/css" href="assets/styles/profile-style.css">
+
+<div class="container">
+    <h1 class="welcome-heading">Hello, adventurer!</h1>
+    {if="$get.login =='success'"}
+        <h3 class="success">You have successfully logged in!</h1>
+    {/if}
+
+    <div class="inventory">
+        <h1>Your inventory:</h1>
+        <div class="items">
+            {loop="$items"}
+                <img src="assets/Images/Items/{$value.item1}.png">
+                <img src="assets/Images/Items/{$value.item2}.png">
+                <img src="assets/Images/Items/{$value.item3}.png">
+                <img src="assets/Images/Items/{$value.item4}.png">
+                <img src="assets/Images/Items/{$value.item5}.png">
+                <img src="assets/Images/Items/{$value.item6}.png">
+                <img src="assets/Images/Items/{$value.item7}.png">
+                <img src="assets/Images/Items/{$value.item8}.png">
+                <img src="assets/Images/Items/{$value.item9}.png">
+            {/loop}            
+        </div>
+    </div>
+
+</div>
+
+{include="footer.html"}

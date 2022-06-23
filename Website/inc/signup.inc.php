@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
 
 	if (createUser($conn, $email, $password)) {
 		session_start();
-		header("Location: ../settings.php?login=success");
+		header("Location: ../profile.php?login=success");
 		exit();
 	}
 

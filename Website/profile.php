@@ -6,6 +6,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ERROR);
 include_once "inc/raintpl/rain.tpl.class.php";
+include_once "inc/db.php";
 $install_path="";
 $sm = new RainTPL();
 
@@ -19,6 +20,14 @@ if (!(isset($_SESSION['ime'])))
 	exit();
 }
 
+$sql = "SELECT * FROM users ";
+$result = mysqli_query($conn, $sql);
+
+while ($row = mysqli_fetch_assoc($result)) {
+  $items[] = $row;
+}
+
+$sm->assign("items", $items);
 $sm->assign("get",$_GET);
 $sm->assign("session",$_SESSION);
-$sm->display("settings.html");
+$sm->display("profile.html");
