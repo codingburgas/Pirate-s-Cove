@@ -96,17 +96,21 @@ void gameOver()
 void game()
 {
 	
-	int playerHealth = 10;
+	int playerHealth = 8;
 	int playerDamage = 1;
+	int playerDefense = 0;
+	int playerAll = playerDefense + playerHealth;
+	int wolfHP = 8;
+	int wolfDmg = 3;
 	char key;
 
-	cout << "You wake up and find yourself on a deserted island. You've just survived a shipwreck and you are now looking for a way to survive. As you're standing on the warm sand, you're scouting out the area nearby. You see a metal bar. It could be used as a weapon. Do you take it? (DMG: 3)" << endl;
+	cout << "You wake up and find yourself on a deserted island. You've just survived a shipwreck and you are now looking for a way to survive. As you're standing on the warm sand, you're scouting out the area nearby. You see a metal bar. It could be used as a weapon. Do you take it? (DMG + 1)" << endl;
 	cout << "Y/N" << endl;
 
 	key = _getch();
 
 	if (key == 'Y' || key == 'y')
-		playerDamage += 2;
+		playerDamage += 1;
 
 	system("CLS");
 
@@ -116,7 +120,7 @@ void game()
 	key = _getch();
 
 	if (key == 'C' || key == 'c')
-	{
+	{	
 		cout << " You entered the cave. It is really dark inside. You find a torch on the wall." << endl;
 		Sleep(200);
 		cout << " After a long walk, you find two tunnels. On the floor in front of them you see two numbers - 8478(left) and 8368(right)" << endl;
@@ -141,21 +145,65 @@ void game()
             /A\                                  \
            ((o))                                  )
             '-'----------------------------------')" << endl << endl;
-		cout << "Choose a tunnel(L/R): ";
+		cout << "Choose a tunnel(L/R): " << endl;
 
 		key = _getch();
 
 		if (key == 'L' || key == 'l')
 		{
-			cout << "As you enter the left tunnel, you notice a small box on a stone pedestal. Inside you find a talisman. Wearing it makes you feel more alive!" << endl;
-			playerHealth += 2;
+			cout << "As you enter the left tunnel, you notice a small box on a stone pedestal. Inside you find a talisman. Wearing it makes you feel more alive! (HP +1)" << endl;
+			playerHealth += 1;
+			
 		}
 		else
 		{
 			cout << "When you go in the right tunnel, suddenly you feel the ground slowly breaking. The entrance gets covered by a big rock. You fall to your death.";
 		}
 
+
+		Sleep(1000);
 		cout << "As you continue your journey through the barely-lit tunnel, you end up at a huge cavern. A wolf spots you and it looks angry!" << endl;
+		cout << "Time to fight!" << endl;
+
+		while (wolfHP >= 1 && playerHealth >= 1)
+		{
+			cout << "Attack, Defend or Rest!" << endl << endl;
+			cout << "DMG: " << playerDamage << " DEF: " << playerDefense << " HP: " << playerHealth << endl << endl;
+			cout << "ENEMY HP: " << wolfHP << " ENEMY DMG: " << wolfDmg << endl << endl;
+			cout << "A/D/R" << endl << endl;
+
+			key = _getch();
+
+			if (key == 'A' || key == 'a')
+			{
+				wolfHP -= playerDamage;
+			}
+			else if ((key == 'D' || key == 'd') && playerDefense < 2)
+			{
+				playerDefense += 1;
+			}
+			else if (key == 'R' || key == 'r')
+			{
+				playerHealth += 2;
+			}
+
+			playerHealth -= wolfDmg - playerDefense;
+
+			system("CLS");
+
+			if (playerHealth <= 0)
+			{
+				cout << "You died! Game over!";
+		
+			}
+			else if (wolfHP <= 0)
+			{
+				cout << "You won the fight! The wolf dropped to the ground and died." << endl;
+			}
+
+		}
+		
+		
 
 	}
 
@@ -213,5 +261,6 @@ void mainMenu()
 
 int main()
 {
+	SetConsoleTitleA("The Pirate's Cove");
 	mainMenu();
 }
