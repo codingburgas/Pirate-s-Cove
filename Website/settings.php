@@ -13,15 +13,6 @@ $sm = new RainTPL();
 raintpl::$tpl_dir = $install_path."templates/"; // template directory
 raintpl::$cache_dir = $install_path."cache/"; // cache directory
 
-if(isset($_GET["error"])) {
-	if ($_GET["error"] == "lowcharacters") {
-		$msg = "<p class='error'>Your password should be with more than 3 characters</p>";
-	}
-	if ($_GET["error"] == "notsamepwd") {
-		$msg = "<p class='error'>Your passwords does not match</p>";
-	}
-}
-
 if (!(isset($_SESSION['ime'])))
 {
 	header("Location: ./login.php");

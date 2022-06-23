@@ -13,5 +13,12 @@ $sm = new RainTPL();
 raintpl::$tpl_dir = $install_path."templates/"; // template directory
 raintpl::$cache_dir = $install_path."cache/"; // cache directory
 
+if(isset($_GET["error"])) {
+	if ($_GET["error"] == "invalidlogin") {
+		$msg = "<p class='error'>Wrong email/password.</p>";
+	}
+}
+
+$sm->assign("msg", $msg);	
 $sm->assign("session",$_SESSION);
 $sm->display("login.html");
