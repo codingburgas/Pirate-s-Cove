@@ -7,17 +7,39 @@
         <p>Here you can find more information about our game filled with adventures and riddles. Start your journey on a deserted island, find the pirate treasure and survive!</p>
       </div>
       <div class="column">
-        <img src="" alt="Image here...">
+        <img class="welcome-image" src="assets/Images/welcome-screen.png" alt="Welcome screen for our game">
       </div>
     </div>
     <div class="section-two">
-      <h1></h1>
-      <p></p>
-      <a href=""></a>
+      <div class="column">
+        <a class="download" href="" download><i class="fa fa-download"></i> Download</a>  
+      </div>
+      <div class="column">
+        <h1>Lets play adventurers!</h1>
+        <p>Ready to kick off your adventure? Download the game from this button!</p>        
+      </div>
     </div>
     <div class="section-three">
-      <form>
-        
+      <form action="">
+        <h1 class="form-title">Get in touch</h1>
+        <div style="display: flex;">
+          <div style="flex: 50%;">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+          </div>
+          <div style="flex: 50%; margin-left: 2%;">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
+          </div>
+        </div>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your email.." required>
+
+        <label for="subject">Subject</label>
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:100px"></textarea>
+
+        <input type="submit" value="Submit">
       </form>
     </div>
 </div>
