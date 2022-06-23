@@ -103,15 +103,20 @@ void game()
 	int wolfHP = 8;
 	int wolfDmg = 3;
 	char key;
+	bool winFight = false;
 
-	cout << "You wake up and find yourself on a deserted island. You've just survived a shipwreck and you are now looking for a way to survive. As you're standing on the warm sand, you're scouting out the area nearby. You see a metal bar. It could be used as a weapon. Do you take it? (DMG + 1)" << endl;
+	cout << "You wake up and find yourself on a deserted island. You've just survived a shipwreck and you are now looking for a way to survive. As you're standing on the warm sand, you're scouting out the area nearby. You see a metal bar. It could be used as a weapon. Do you take it? (DMG: 1)" << endl;
 	cout << "Y/N" << endl;
 
 	key = _getch();
 
 	if (key == 'Y' || key == 'y')
-		playerDamage += 1;
-
+	{
+		cout << "You picked up the metal bar! ";
+		playerDamage = 2;
+		cout << "Your damage is now " << playerDamage;
+	}
+	Sleep(200);
 	system("CLS");
 
 	cout << "You see a cave and a jungle. Where do you want to go?" << endl;
@@ -121,27 +126,27 @@ void game()
 
 	if (key == 'C' || key == 'c')
 	{	
-		cout << " You entered the cave. It is really dark inside. You find a torch on the wall." << endl;
+		cout << "You entered the cave. It is really dark inside. You find a torch on the wall." << endl;
 		Sleep(200);
-		cout << " After a long walk, you find two tunnels. On the floor in front of them you see two numbers - 8478(left) and 8368(right)" << endl;
+		cout << "After a long walk, you find two tunnels. On the floor in front of them you see two numbers - 8478(left) and 8368(right)" << endl;
 		Sleep(200);
-		cout << " Unsure which one to pick, you find a message on the wall nearby." << endl;
+		cout << "Unsure which one to pick, you find a message on the wall nearby." << endl;
 		cout << R"(
            .-.---------------------------------.-.
           ((o))                                   )
            \U/_______          _____         ____/
              |                                  |
              |                                  |
-             |									|
-             |          3	  1		4			|
+             |                                  |
+             |          3     1     4           |
              |                                  |
              |                      *           |
-             |							        |
+             |                                  |
              |                2     7           |
              |                                  |
              |                                  |
              |                                  |
-             |____    _______    __  ____    ___|KCK
+             |____    _______    __  ____    ___|
             /A\                                  \
            ((o))                                  )
             '-'----------------------------------')" << endl << endl;
@@ -186,6 +191,12 @@ void game()
 			{
 				playerHealth += 2;
 			}
+		
+			else
+			{
+				cout << "Please choose a valid action!";
+				key = _getch();
+			}
 
 			playerHealth -= wolfDmg - playerDefense;
 
@@ -203,8 +214,64 @@ void game()
 
 		}
 		
-		
+		cout << "After the fight, you feel exhausted. You sit on the ground when suddenly you find a pickaxe. Do you want to take it(DMG: 4)?" << endl;
+		cout << "Y/N" << endl;
 
+		key = _getch();
+
+		if (key == 'y' || key == 'Y')
+		{
+			cout << "You picked up the pickaxe! ";
+			playerDamage = 4;
+			cout << "Your damage is now " << playerDamage << "!" << endl << endl << endl;
+		}
+		Sleep(200);
+		cout << "After walking for a while, you find a trolley and a lever next to it. You sit in the trolley. Looks like you need to move the lever to move it." << endl;
+		Sleep(200);
+		cout << "There is one problem though - you don't know whether to push the lever or to pull it. You look in front of you and find the following note in the trolley: " << endl;
+		Sleep(200);
+		cout << R"(
+             _______________________
+             |                     |
+             |                     |
+             |	To find out what   |
+             |	to do with the	   |
+             |  lever, choose the  |
+             |  action which has   |
+             |  the fractions that |
+             |  give the same      |
+             |  result.            |
+             |                     |
+             |  Pull - 0.4; 1/4;   |
+             |  40%                |
+             |  Push - 0.5; 1/2;   |
+             |  50%                |
+             |                     |
+             |__    ___   __    ___|)" << endl << endl;
+
+		Sleep(200);
+		cout << "Choose whether to pull or push the lever(> - push; < - pull)." << endl;
+		cout << "> / <" << endl;
+		key = _getch();
+		if (key == '>')
+		{
+			cout << "The trolley starts moving! You made the right choice!";
+		}
+		else if (key == '<')
+		{
+			cout << "The trolley stays at its place. You can hear something falling. You look up at the ceiling. Spikes are falling on you! They hit you and you die.";
+		}
+	}
+
+	else if (key == 'J' || key == 'j')
+	{
+		cout << "You enter the jungle.";
+	}
+
+	else
+	{
+		cout << "Please choose a valid location!";
+		key = _getch();
 	}
 
 }
