@@ -213,5 +213,6 @@ void mainMenu()
 
 int main()
 {
+	SetConsoleTitleA("The Pirate's Cove");
 	mainMenu();
 }
