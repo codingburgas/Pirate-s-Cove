@@ -1,6 +1,5 @@
 <p align="center">
   <a href="" rel="noopener">
-
 </p>
 
 <h1 align="center">The Pirate's Cove</h3>
@@ -10,15 +9,12 @@
 </p>
 
 ## 📝 Table of Contents
-+ [Our team](#teamInfo)
-+ [Used technologies and tools](#languagesAndtools)
-+ [Documentation and presentation](#docAndPres)
-+ [About the website](#about)
++ [Our team](#team)
++ [Used technologies and tools](#tools)
++ [About the game](#about)
 + [Installation](#install)
-+ [Useful links](#acknowledgement)
-+ [Sources](#sources)
 
-## <p id = "teamInfo">Team <a name = "team">The Pirate's Cove</a> </p>
+## <p id = "team">Team <a name = "team">The Pirate's Cove</a> </p>
 - Scrum Trainer - [Lubomir Bozukov](https://github.com/LVBozukov19)
 - Scrum Trainer - [Georgi Mateev](https://github.com/GGMateev19)
 - Front-end developer- [Martin Stoyanov](https://github.com/MMStoyanov21)
@@ -28,7 +24,7 @@
 - Back-end developer - [Bozhidar Boyadzhiev](https://github.com/BozhidarBoyadzhiev)
 - Back-end developer - [Georgi Zhekov](https://github.com/GTZhekov20)
 
-## <p id="languagesAndtools">🚀 Languages and tools</p>
+## <p id = "tools">🚀 Languages and tools</p>
 
 <p align="left"> 
     <img src="https://img.icons8.com/color/48/000000/html-5.png"/> 
@@ -45,7 +41,7 @@
 А text adventure game where you play as a survivor on a stranded island. Claim the lost treasure and escape the island!
 
 ## <p id = "license">License</p>
-This project is licensed under the MIT license. See [License](LICENSE.txt) for more
+This project is licensed under the MIT license. See [License](LICENSE.md) for more
 
 ## <p id = "install">⚙ Installation</p>
 ```
