@@ -150,6 +150,7 @@ void game()
             /A\                                  \
            ((o))                                  )
             '-'----------------------------------')" << endl << endl;
+
 		cout << "Choose a tunnel(L/R): " << endl;
 
 		key = _getch();
@@ -187,7 +188,7 @@ void game()
 			{
 				playerDefense += 1;
 			}
-			else if (key == 'R' || key == 'r')
+			else if ((key == 'R' || key == 'r') && playerHealth < 9)
 			{
 				playerHealth += 2;
 			}
@@ -205,11 +206,10 @@ void game()
 			if (playerHealth <= 0)
 			{
 				cout << "You died! Game over!";
-				
 			}
 			else if (wolfHP <= 0)
 			{
-				cout << "You won the fight! The wolf dropped to the ground and died." << endl;
+				cout << "You won the fight! The wolf dropped to the ground, dead." << endl;
 			}
 
 		}
@@ -272,6 +272,41 @@ void game()
 	{
 		cout << "Please choose a valid location!";
 		key = _getch();
+	}
+	else if (key == 'J' || key == 'j')
+	{
+		cout << "You head towards the jungle, not knowing what you'll find there." << endl;
+		Sleep(200);
+		cout << "While walking, you notice an ancient temple, a dim light glowing within it. You decide to investigate." << endl;
+		Sleep(200);
+		cout << "As you're going down the stairs, a trap locks you in place and symbols on the wall start to glow. You read the message which says:" << endl;
+		cout << R"(
+		I provide light but I'm not a candle
+
+		I'm hot but I'm not a bonfire
+
+		I have rays but I'm not an aquarium
+
+		I'm a star but I'm not a celebrity
+
+		I rise in the morning but I'm not 
+
+		someone getting out of bed)" << endl << endl;
+
+		cout << "The available options are:" << endl;
+		cout << "Sun/Mars/Lightbulb (S/M/L)" << endl;
+
+		key = _getch();
+
+		if (key == 'S' || key == 's')
+		{
+			cout << "As you confirm your choice, the trap releases you and you barely escape the falling rock above you." << endl;
+			cout << "Since the exit is now blocked, you continue further into the temple." << endl;
+		}
+		else
+		{
+			cout << "As soon as you select the option, the trap squeezes you even tighter and a giant rock crushes you." << endl;
+		}
 	}
 
 }
