@@ -350,20 +350,35 @@ void game()
 				if (key == 'F' || key == 'f')
 				{	
 					system("CLS");
-					cout << "Upon entering 308, you hear the door opening! Good job, you entered the right code!" << endl;
 
-					cout << "After walking for a while, you find another door. Drawn on it, you can see that you need to press a button which is on top of the door." << endl;
+					cout << "Upon entering 308, you hear the door opening! Good job, you entered the right code!" << endl;
+					cout << "After walking for a while, you find another door. Drawn on it, you can see that you" << endl;
+					cout << "need to press a button which is on top of the door." << endl;
+
 					Sleep(200);
-					cout << "You can't reach it, so you use your pickaxe to press it. It works! The door opens and you go in the next room." << endl;
+					cout << "You can't reach it, so you use your pickaxe to press it. It works!" << endl;
+					cout << "The door opens and you go in the next room." << endl << endl;
+
+					cout << "Continue" << endl << endl;
+					key = _getch();
+
+					system("CLS");
+
 					Sleep(200);
-					cout << "In the middle of the room you can see a chest full with silver coins. Right as you start to pick it up, you see something rising up behind it." << endl;
+					cout << "In the middle of the room you can see a chest full with silver coins." << endl;
+					cout << "Right as you start to pick it up, you see something rising up behind it." << endl;
 					Sleep(200);
-					cout << "It's a tall muscular miner. You discover that he is a zombie, judging by the look of his face and the missing flesh on parts of it." << endl;
+					cout << "It's a tall muscular miner. You discover that he is a zombie, judging by the" << endl;
+					cout << "look of his face and the missing flesh on parts of it." << endl;
 					Sleep(200);
 					cout << "To get the treasure, prepare to fight him. This won't be an easy task." << endl;
 					Sleep(200);
 
-					system("cls");
+					cout << "Continue" << endl << endl;
+					key = _getch();
+
+					system("CLS");
+
 					while (minerHP >= 1 && playerHealth >= 1)
 					{
 						cout << "Attack, Defend or Rest!" << endl << endl;
