@@ -1,13 +1,10 @@
 .container {
+  height: 100%;
   background: rgb(34,75,195);
   background: linear-gradient(0deg, rgba(34,75,195,1) 0%, rgba(57,106,228,1) 50%, rgba(45,224,253,1) 100%);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-.section-one, .section-two {
-  height: 30vh;
 }
 
 .section-one, .section-two, .section-three {
@@ -26,7 +23,6 @@
 }
 
 .column > p {
-  width: ;
   font-family: 'Lora', serif;
   font-size: 1.5em;
 }
@@ -36,11 +32,9 @@
 }
 
 .download {
-  margin: 90px;
   border: 1px solid #2B2C2D;
   padding: 5%;
   border-radius: 30px;
-  width: 25%;
   color: white;
   background-color: #2B2C2D;
 }
@@ -49,6 +43,7 @@
   display: inline-block;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 0px;
 }
 
 input, textarea {
@@ -61,7 +56,6 @@ input, textarea {
   margin-bottom: 16px;
   resize: vertical;
   font-family: 'Lato', sans-serif;
-  font-size: 0.8em;
 }
 
 label {
@@ -72,7 +66,6 @@ label {
 
 input[type=submit] {
   background-color: transparent;
-  padding: 12px 20px;
   border: 1px solid black;
   border-radius: 4px;
   cursor: pointer;

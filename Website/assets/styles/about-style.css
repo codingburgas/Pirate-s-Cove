@@ -1,8 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;1,300&display=swap');
 
+html {
+  height: 100%;
+}
+
 body {
-  overflow: hidden;
+  height: 100%;
+  background: rgb(21,226,199);
+  background: linear-gradient(0deg, rgba(21,226,199,1) 0%, rgba(45,253,142,1) 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .container {
@@ -77,16 +86,6 @@ section .text-container .text-box h3 {
   font-size: 30px;
   text-align: center;
   margin-bottom: 10px;
-}
-
-@media (max-width: 900px) {
-  section h1 {
-    font-size: 2rem;
-    text-align: center;
-  }
-  section .text-container {
-    flex-direction: column;
-  }
 }
 
 .reveal {
