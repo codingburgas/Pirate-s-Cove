@@ -63,7 +63,6 @@ input[type=submit]:hover {
 form {
   padding: 2%;
 	border: 1px solid black;
-  max-width: 50%;
   border-radius: 50px;
   margin-left: auto;
   margin-right: auto;
