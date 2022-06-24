@@ -21,8 +21,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  display: flex;
-  justify-content: center;  
+  display: flex;justify-content: space-around;  
   background-color:white;
 }
 
@@ -33,6 +32,8 @@ li {
   padding: 1% 2%;
   text-decoration: none;
   font-family: 'Lato', sans-serif;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 a {
@@ -89,4 +90,14 @@ li > a:hover::before{
   font-size: 2em;
   font-weight: bold;
   font-family: 'Montserrat', sans-serif;
+}
+
+.logo {
+  width: 100%;
+  vertical-align: middle;
+  left: 0; 
+}
+
+.logo-li {
+  width: 4%;
 }
