@@ -39,7 +39,7 @@
         	<img class="image" alt="Georgi Zhekov" src="assets/Images/Team Members/zhekov.jpg">  
 		</div>  
         <p>
-          One of our backend-developers. He made our game with the help of Georgi Zhekov.
+          One of our backend-developers. He made our game with the help of Mario Zlate.
         </p>
       </div>
     </div>
@@ -50,7 +50,7 @@
         	<img class="image" alt="Mario Zlatev" src="assets/Images/Team Members/zlatev.jpg">  
 		</div>  
         <p>
-          One of our backend-developers. He made our game with the help of Mario Zlatev.
+          One of our backend-developers. He made our game with the help of Georgi Zhekovv.
         </p>
       </div>
       <div class="text-box">

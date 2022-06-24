@@ -18,6 +18,11 @@ if (isset($_POST['submit'])) {
 		exit();
 	}
 
+	if (emailExists($conn, $email)) {
+		header("Location: ../signup.php?error=emailtaken");
+		exit();
+	}
+
 	if (createUser($conn, $email, $password)) {
 		session_start();
 		header("Location: ../profile.php?login=success");

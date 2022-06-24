@@ -20,6 +20,9 @@ if(isset($_GET["error"])) {
 	if ($_GET["error"] == "notsamepwd") {
 		$msg = "<p class='error'>Your passwords does not match.</p>";
 	}
+	if ($_GET["error"] == "emailtaken") {
+		$msg = "<p class='error'>This email is already taken.</p>";
+	}
 }
 
 $sm->assign("msg", $msg);
