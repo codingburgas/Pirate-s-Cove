@@ -66,6 +66,13 @@ void mainMenu();
 
 void theEnd()
 {
+
+	cout << "After you have conquered both places, you gather enough stones to create an SOS signal." << endl;
+	cout << "After a while, a group of seamen find you and take you to land." << endl;
+	cout << "You go back home and tell your friends about the wild adventure you had been through!" << endl << endl;
+
+	cout << "Continue" << endl;
+
 	system("CLS");
 	cout << R"(
 
@@ -100,11 +107,15 @@ void game()
 	int spiderDmg = 5;
 	int queenDmg = 5;
 	int queenHP = 15;
+	int minerHP = 20;
+	int minerDmg = 5;
 	int playerLS = 0;
 	int playerHealth = 8;
 	int playerDamage = 1;
 	int playerDefense = 0;
 	bool winFight = false;
+	bool isCaveExplored = false;
+	bool isJungleExplored = false;
 
 	cout << "You wake up and find yourself on a deserted island." << endl;
 	cout << "You've just survived a shipwreck and you are now looking for a way to survive." << endl;
@@ -339,13 +350,80 @@ void game()
 				if (key == 'F' || key == 'f')
 				{	
 					system("CLS");
-					cout << "Upon entering 308, you hear the door opening! Good job, you entered the right code!";
-					
+					cout << "Upon entering 308, you hear the door opening! Good job, you entered the right code!" << endl;
+
+					cout << "After walking for a while, you find another door. Drawn on it, you can see that you need to press a button which is on top of the door." << endl;
+					Sleep(200);
+					cout << "You can't reach it, so you use your pickaxe to press it. It works! The door opens and you go in the next room." << endl;
+					Sleep(200);
+					cout << "In the middle of the room you can see a chest full with silver coins. Right as you start to pick it up, you see something rising up behind it." << endl;
+					Sleep(200);
+					cout << "It's a tall muscular miner. You discover that he is a zombie, judging by the look of his face and the missing flesh on parts of it." << endl;
+					Sleep(200);
+					cout << "To get the treasure, prepare to fight him. This won't be an easy task." << endl;
+					Sleep(200);
+
+					system("cls");
+					while (minerHP >= 1 && playerHealth >= 1)
+					{
+						cout << "Attack, Defend or Rest!" << endl << endl;
+						cout << "DMG: " << playerDamage << " DEF: " << playerDefense << " HP: " << playerHealth << endl << endl;
+						cout << "ENEMY HP: " << minerHP << " ENEMY DMG: " << minerDmg << endl << endl;
+						cout << "A/D/R" << endl << endl;
+
+						key = _getch();
+
+						if (key == 'A' || key == 'a')
+						{
+							minerHP -= playerDamage;
+							playerHealth += playerLS;
+						}
+						else if ((key == 'D' || key == 'd') && playerDefense < 4)
+						{
+							playerDefense += 1;
+						}
+						else if ((key == 'R' || key == 'r') && playerHealth < 9)
+						{
+							playerHealth += 2;
+						}
+
+						playerHealth -= minerDmg - playerDefense;
+
+						system("CLS");
+
+						if (playerHealth <= 0)
+						{
+							cout << "You died! Game over!";
+							gameOver();
+
+						}
+						else if (minerHP <= 0)
+						{
+							cout << "Congratulations! You killed the Zombie Miner! After his death, you pick up the" << endl;
+							cout << "lost chest and escape by digging the nearby wall with your pickaxe!" << endl << endl;
+
+							isCaveExplored = true;
+							cout << "Continue" << endl << endl;
+							key = _getch();
+
+							system("CLS");
+
+							if (isJungleExplored == false)
+							{
+								cout << "After this adventure, you think that maybe it's time to explore the jungle." << endl << endl;
+								cout << "Go to the jungle";
+								key = _getch();
+							}
+							else
+								theEnd();
+
+						}
+					}
 				}
 				else
 				{
 					cout << "Upon entering 318, you hear something. Suddenly, big rocks are falling from the ceiling." << endl;
-					cout << "One falls on youand crushes you.";
+					cout << "One falls on you and crushes you.";
 					gameOver();
 				}
 			}
@@ -573,19 +651,20 @@ void game()
 										cout << "Congratulations! You killed the Spider Queen! After her graceful death, you claim the" << endl;
 										cout << "lost treasure and escape through a hole in the wall" << endl << endl;
 
+										isJungleExplored = true;
 										cout << "Continue" << endl << endl;
 										key = _getch();
 
 										system("CLS");
 
-										cout << "After you have conquered the jungle, you gather enough stones to create an SOS signal." << endl;
-										cout << "After a while, a group of seamen find you and take you to land." << endl;
-										cout << "You go back home and tell your friends about the wild adventure you had been through!" << endl << endl;
-
-										cout << "Continue" << endl;
-										key = _getch();
-
-										theEnd();
+										if (isCaveExplored == false)
+										{
+											cout << "After conquering the jungle, maybe it's time to explore the cave." << endl;
+											cout << "Go to the cave";
+											key = _getch();
+										}
+										else
+											theEnd();
 
 									}
 
