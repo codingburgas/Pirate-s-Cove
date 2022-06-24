@@ -102,6 +102,8 @@ void game()
 	int playerAll = playerDefense + playerHealth;
 	int wolfHP = 8;
 	int wolfDmg = 3;
+	int spiderHP = 7;
+	int spiderDmg = 5;
 	char key;
 	bool winFight = false;
 
@@ -166,7 +168,6 @@ void game()
 			cout << "When you go in the right tunnel, suddenly you feel the ground slowly breaking. The entrance gets covered by a big rock. You fall to your death.";
 		}
 
-
 		Sleep(1000);
 		cout << "As you continue your journey through the barely-lit tunnel, you end up at a huge cavern. A wolf spots you and it looks angry!" << endl;
 		cout << "Time to fight!" << endl;
@@ -192,12 +193,6 @@ void game()
 			{
 				playerHealth += 2;
 			}
-		
-			else
-			{
-				cout << "Please choose a valid action!";
-				key = _getch();
-			}
 
 			playerHealth -= wolfDmg - playerDefense;
 
@@ -206,31 +201,31 @@ void game()
 			if (playerHealth <= 0)
 			{
 				cout << "You died! Game over!";
+				break;
 			}
 			else if (wolfHP <= 0)
 			{
 				cout << "You won the fight! The wolf dropped to the ground, dead." << endl;
-			}
 
-		}
-		
-		cout << "After the fight, you feel exhausted. You sit on the ground when suddenly you find a pickaxe. Do you want to take it(DMG: 4)?" << endl;
-		cout << "Y/N" << endl;
+				playerHealth = 9;
 
-		key = _getch();
+				cout << "After the fight, you feel exhausted. You sit on the ground when suddenly you find a pickaxe. Do you want to take it(DMG: 4)?" << endl;
+				cout << "Y/N" << endl;
 
-		if (key == 'y' || key == 'Y')
-		{
-			cout << "You picked up the pickaxe! ";
-			playerDamage = 4;
-			cout << "Your damage is now " << playerDamage << "!" << endl << endl << endl;
-		}
-		Sleep(200);
-		cout << "After walking for a while, you find a trolley and a lever next to it. You sit in the trolley. Looks like you need to move the lever to move it." << endl;
-		Sleep(200);
-		cout << "There is one problem though - you don't know whether to push the lever or to pull it. You look in front of you and find the following note in the trolley: " << endl;
-		Sleep(200);
-		cout << R"(
+				key = _getch();
+
+				if (key == 'y' || key == 'Y')
+				{
+					cout << "You picked up the pickaxe! ";
+					playerDamage = 4;
+					cout << "Your damage is now " << playerDamage << "!" << endl << endl << endl;
+				}
+				Sleep(200);
+				cout << "After walking for a while, you find a trolley and a lever next to it. You sit in the trolley. Looks like you need to move the lever to move it." << endl;
+				Sleep(200);
+				cout << "There is one problem though - you don't know whether to push the lever or to pull it. You look in front of you and find the following note in the trolley: " << endl;
+				Sleep(200);
+				cout << R"(
              _______________________
              |                     |
              |                     |
@@ -249,18 +244,21 @@ void game()
              |                     |
              |__    ___   __    ___|)" << endl << endl;
 
-		Sleep(200);
-		cout << "Choose whether to pull or push the lever(> - push; < - pull)." << endl;
-		cout << "> / <" << endl;
-		key = _getch();
-		if (key == '>')
-		{
-			cout << "The trolley starts moving! You made the right choice!";
+				Sleep(200);
+				cout << "Choose whether to pull or push the lever(> - push; < - pull)." << endl;
+				cout << "> / <" << endl;
+				key = _getch();
+				if (key == '>')
+				{
+					cout << "The trolley starts moving! You made the right choice!";
+				}
+				else if (key == '<')
+				{
+					cout << "The trolley stays at its place. You can hear something falling. You look up at the ceiling. Spikes are falling on you! They hit you and you die.";
+				}
+			}
 		}
-		else if (key == '<')
-		{
-			cout << "The trolley stays at its place. You can hear something falling. You look up at the ceiling. Spikes are falling on you! They hit you and you die.";
-		}
+
 	}
 
 	else if (key == 'J' || key == 'j')
@@ -297,6 +295,50 @@ void game()
 		{
 			cout << "As you confirm your choice, the trap releases you and you barely escape the falling rock above you." << endl;
 			cout << "Since the exit is now blocked, you continue further into the temple." << endl;
+			cout << "While walking, you stumble upon an ancient piece of armor! Wearing makes you feel protected. (DEF: +2)" << endl;
+			playerDefense += 2;
+			cout << "You find a room with a chest inside. When you go to open it, a spider jumps from the ceiling, landing in front of you!" << endl;
+
+			while (spiderHP >= 1 && playerHealth >= 1)
+			{
+				cout << "Attack, Defend or Rest!" << endl << endl;
+				cout << "DMG: " << playerDamage << " DEF: " << playerDefense << " HP: " << playerHealth << endl << endl;
+				cout << "ENEMY HP: " << spiderHP << " ENEMY DMG: " << spiderDmg << endl << endl;
+				cout << "A/D/R" << endl << endl;
+
+				key = _getch();
+
+				if (key == 'A' || key == 'a')
+				{
+					spiderHP -= playerDamage;
+				}
+				else if ((key == 'D' || key == 'd') && playerDefense < 4)
+				{
+					playerDefense += 1;
+				}
+				else if ((key == 'R' || key == 'r') && playerHealth < 9)
+				{
+					playerHealth += 2;
+				}
+
+				playerHealth -= spiderDmg - playerDefense;
+
+				system("CLS");
+
+				if (playerHealth <= 0)
+				{
+					cout << "You died! Game over!";
+					break;
+				}
+				else if (spiderHP <= 0)
+				{
+					cout << "You won the fight! The spider made a loud screech and died." << endl;
+					playerHealth = 8;
+
+					cout << "Now that the threat is gone, you open the chest and find a sword, which has a red, glowing jem in its handle. (LIFESTEAL: +1; DMG: +3)" << endl;
+					
+				}
+			}
 		}
 		else
 		{
@@ -308,7 +350,6 @@ void game()
 		cout << "Please choose a valid location!";
 		key = _getch();
 	}
-	
 
 }
 
