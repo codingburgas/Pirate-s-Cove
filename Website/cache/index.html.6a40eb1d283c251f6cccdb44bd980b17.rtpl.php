@@ -2,6 +2,9 @@
 <link rel="stylesheet" type="text/css" href="assets/styles/index-style.css">
 
 <div class="container">
+
+  <?php echo $msg;?>
+
     <div class="section-one">
       <div class="column">
         <h1>Welcome, adventurers</h1>
@@ -21,7 +24,7 @@
       </div>
     </div>
     <div class="section-three">
-      <form action="">
+      <form action="inc/mail.inc.php" method="post">
         <h1 class="form-title">Get in touch</h1>
         <div style="display: flex;">
           <div style="flex: 50%;">
@@ -40,9 +43,10 @@
         <label for="subject">Subject</label>
         <textarea id="subject" name="subject" placeholder="Write something.." style="height:100px"></textarea>
 
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" name="submit">
       </form>
     </div>
+  }
 </div>
 
 <?php $tpl = new RainTPL;$tpl_dir_temp = self::$tpl_dir;$tpl->assign( $this->var );$tpl->display( dirname("footer.html") . ( substr("footer.html",-1,1) != "/" ? "/" : "" ) . basename("footer.html") );?>

@@ -80,3 +80,13 @@ li > a:hover::before{
   padding: 5px;
   font-family: 'Montserrat', sans-serif;
 }
+
+.mail-sended {
+  margin: 0;
+  padding-top: 20px;
+  text-align: center;
+  color: #288C28;
+  font-size: 2em;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+}

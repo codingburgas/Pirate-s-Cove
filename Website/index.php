@@ -13,5 +13,12 @@ $sm = new RainTPL();
 raintpl::$tpl_dir = $install_path."templates/"; // template directory
 raintpl::$cache_dir = $install_path."cache/"; // cache directory
 
+if(isset($_GET["mail"])) {
+	if ($_GET["mail"] == "sended") {
+		$msg = "<p class='mail-sended'>You have successfully sent us an email!</p>";
+	}
+}
+
+$sm->assign("msg", $msg);
 $sm->assign("session",$_SESSION);
 $sm->display("index.html");
