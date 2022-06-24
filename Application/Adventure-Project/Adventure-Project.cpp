@@ -64,15 +64,29 @@ void Logo()
 
 void mainMenu();
 
-void gameOver()
+void theEnd()
 {
-	system("cls");
+	system("CLS");
 	cout << R"(
 
-  ________   __  _______  ____ _   _________ 
- / ___/ _ | /  |/  / __/ / __ \ | / / __/ _ \
-/ (_ / __ |/ /|_/ / _/  / /_/ / |/ / _// , _/
-\___/_/ |_/_/  /_/___/  \____/|___/___/_/|_|
+		 ________ ______  _____  _____ 
+		/_  __/ // / __/ / __/ |/ / _ \
+		 / / / _  / _/  / _//    / // /
+		/_/ /_//_/___/ /___/_/|_/____/ 
+                               
+
+)";
+}
+
+void gameOver()
+{
+	system("CLS");
+	cout << R"(
+
+		  ________   __  _______  ____ _   _________ 
+		 / ___/ _ | /  |/  / __/ / __ \ | / / __/ _ \
+		/ (_ / __ |/ /|_/ / _/  / /_/ / |/ / _// , _/
+		\___/_/ |_/_/  /_/___/  \____/|___/___/_/|_|
 )";
 	
 }
@@ -556,10 +570,23 @@ void game()
 									}
 									else if (queenHP <= 0)
 									{
-										cout << "You won the fight! The wolf dropped to the ground, dead." << endl;
+										cout << "Congratulations! You killed the Spider Queen! After her graceful death, you claim the" << endl;
+										cout << "lost treasure and escape through a hole in the wall" << endl << endl;
 
-										playerHealth = 9;
-										playerDefense = 0;
+										cout << "Continue" << endl << endl;
+										key = _getch();
+
+										system("CLS");
+
+										cout << "After you have conquered the jungle, you gather enough stones to create an SOS signal." << endl;
+										cout << "After a while, a group of seamen find you and take you to land." << endl;
+										cout << "You go back home and tell your friends about the wild adventure you had been through!" << endl << endl;
+
+										cout << "Continue" << endl;
+										key = _getch();
+
+										theEnd();
+
 									}
 
 								}
