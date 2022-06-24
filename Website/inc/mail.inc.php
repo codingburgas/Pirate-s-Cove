@@ -7,7 +7,7 @@ if (isset($_POST['submit'])) {
 	$email = $_POST['email'];
 	$subject = $_POST['subject'];
 
-	mail($email, "Email from ".$firstname." ". $lastname."", $subject, 'From: piratescove@piratescove.maxprogress.bg');
+	mail("piratescove@piratescove.maxprogress.bg", "Email from ".$firstname." ". $lastname."", $subject, "From: ". $email ."");
 
 	header("Location: ../index.php?mail=sended");
 	exit();
