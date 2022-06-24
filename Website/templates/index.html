@@ -16,7 +16,7 @@
         <a class="download" href="" download><i class="fa fa-download"></i> Download</a>  
       </div>
       <div class="column">
-        <h1>Lets play adventurers!</h1>
+        <h1>Let's play, adventurers!</h1>
         <p>Ready to kick off your adventure? Download the game from this button!</p>        
       </div>
     </div>
