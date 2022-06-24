@@ -4,7 +4,7 @@
 <div class="container">
 <section>
   <h1 class="title">Our team</h1>
-  <div class="container reveal fade-left">
+  <div class="reveal fade-left">
     <div class="text-container">
       <div class="text-box">
 		<div style="display: flex;">

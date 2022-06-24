@@ -33,16 +33,10 @@ body {
 
 .title {
 	padding-top: 2%;
-	padding-bottom: -2%;
 	margin: 0;
 	text-align: center;
 }
 
-section {
-  min-height: 100vh;
-  justify-content: center;
-  align-items: center;
-}
 section:nth-child(1) {
   color: #e0ffff;
 }
