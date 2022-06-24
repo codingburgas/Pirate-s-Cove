@@ -68,15 +68,13 @@ void gameOver()
 {
 	system("cls");
 	cout << R"(
-		  _____                         ____                 
-		 / ____|                       / __ \ 
-		| |  __  __ _ _ __ ___   ___  | |  | |_   _____ _ __ 
-		| | |_ |/ _` | '_ ` _ \ / _ \ | |  | \ \ / / _ \ '__|
-		| |__| | (_| | | | | | |  __/ | |__| |\ V /  __/ |
-		 \_____|\__,_|_| |_| |_|\___|  \____/  \_/ \___|_|
+
+  ________   __  _______  ____ _   _________ 
+ / ___/ _ | /  |/  / __/ / __ \ | / / __/ _ \
+/ (_ / __ |/ /|_/ / _/  / /_/ / |/ / _// , _/
+\___/_/ |_/_/  /_/___/  \____/|___/___/_/|_|
 )";
-	Sleep(150);
-	cout << "Try again" << setw(30) << "Return to main menu";
+	
 }
 
 void game()
@@ -188,7 +186,8 @@ void game()
 			if (playerHealth <= 0)
 			{
 				cout << "You died! Game over!";
-				break;
+				gameOver();
+				
 			}
 			else if (wolfHP <= 0)
 			{
@@ -360,7 +359,7 @@ void game()
 				if (playerHealth <= 0)
 				{
 					cout << "You died! Game over!";
-					break;
+					gameOver();
 				}
 				else if (spiderHP <= 0)
 				{
@@ -392,6 +391,42 @@ void game()
 					{
 						cout << "As you walk down the left path, you notice a spider's tooth, which when worn, gives you more health! (HP: +1)" << endl;
 						playerHealth += 1;
+
+						cout << "After you pass the maze, you see what looks like a bridge, split in half." << endl;
+						cout << "On the other side you see a giant door with a tiny keyhole." << endl;
+						cout << "In order to cross the bridge, you need to solve an another riddle. " << endl;
+						cout << R"(
+             _______________________
+             |                     |
+             |                     |
+             |	I am a protector   |
+             |	I sit on a bridge  |
+             |  One person can see |
+             |  right through me,  |
+             |  while others wonder|
+             |  what I hide.       |
+             |  What am I?         |
+             |                     |
+             |  Sunglasses (S)     |
+             |  Window (W)         |
+             |  Binoculars(B)      |
+             |                     |
+             |                     |
+             |__    ___   __    ___|)" << endl << endl;
+
+						cout << "S/W/B" << endl;
+
+						key = _getch();
+
+						if (key == 'S' || key == 's')
+						{
+							cout << "The ground starts rumbling. A stone foundation connects the two sides so you can cross the gap." << endl;
+						}
+						else
+						{
+							cout << "The ground beneath you starts to break and you fall to your death." << endl;
+						}
+
 					}
 				}
 			}
