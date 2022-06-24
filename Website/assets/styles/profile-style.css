@@ -32,11 +32,5 @@ body {
 }
 
 .inventory > h1 {
-	text-align: left;
 	font-family: 'Varela Round', sans-serif;
-}
-
-.items {
-	margin-left: 20%;
-	margin-right: 20%;
 }

@@ -76,11 +76,6 @@ section .text-container {
   border: 1px solid #4CAF50; 
   background: #00c2cb;
 }
-section .text-container .text-box h3 {
-  font-size: 30px;
-  text-align: center;
-  margin-bottom: 10px;
-}
 
 .reveal {
   position: relative;

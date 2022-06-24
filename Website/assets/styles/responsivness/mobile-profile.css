@@ -1,0 +1,16 @@
+@media (max-width: 640px) {
+	.inventory > h1 {
+		text-align: center;
+	}
+
+	.items {
+		text-align: center;
+	}
+}
+
+@media (min-width: 641px) {
+	.items {
+		margin-left: 20%;
+		margin-right: 20%;		
+	}
+}
