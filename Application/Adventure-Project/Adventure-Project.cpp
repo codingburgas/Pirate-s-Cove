@@ -336,7 +336,31 @@ void game()
 					playerHealth = 8;
 
 					cout << "Now that the threat is gone, you open the chest and find a sword, which has a red, glowing jem in its handle. (LIFESTEAL: +1; DMG: +3)" << endl;
-					
+					cout << "Going deeper into the temple, you stumble upon a massive maze." << endl;
+					cout << "Lucky for you, however, there is a map on the wall which will guide you through the maze." << endl;
+					cout << "There is one problem, though. It's coded in some unknown way." << endl;
+					cout << R"(
+  _____   _______    __    ______   _______  ______  
+ / ___ \ (  __   )  /  \  / ___  \ (  ____ \/ ___  \ 
+( (   ) )| (  )  |  \/) ) \/   \  \| (    \/\/   )  )
+( (___) || | /   |    | |    ___) /| (__        /  / 
+ \____  || (/ /) |    | |   (___ ( |  __)      /  /  
+      ) ||   / | |    | |       ) \| (        /  /   
+/\____) )|  (__) |  __) (_/\___/  /| )       /  /    
+\______/ (_______)  \____/\______/ |/        \_/     
+                                                     
+)" << endl << endl;
+
+					cout << "The entrance of the maze splits into two paths. Maybe this code could help you choose the direction?" << endl;
+					cout << "L/R" << endl;
+
+					key = _getch();
+
+					if (key == 'L' || key == 'l')
+					{
+						cout << "As you walk down the left path, you notice a spider's tooth, which when worn, gives you more health! (HP: +1)" << endl;
+						playerHealth += 1;
+					}
 				}
 			}
 		}
