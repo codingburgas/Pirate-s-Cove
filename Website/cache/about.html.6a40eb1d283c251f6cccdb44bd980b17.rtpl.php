@@ -56,7 +56,7 @@
       <div class="text-box">
 		<div style="display: flex;">
 			<h3 style="flex: 50%">Martin Stoyanov</h3>
-        	<img class="image" alt="Martin Stoyanov" src="assets/Images/stoyanov.jpg">  
+        	<img class="image" alt="Martin Stoyanov" src="assets/Images/stoyanov.png">  
 		</div>  
         <p>
           One of our frontend-developers. He created the logo and helped with the design of the website.
