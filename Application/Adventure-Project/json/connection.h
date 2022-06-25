@@ -6,7 +6,7 @@
 void downloadJson(std::wstring email)
 {
 
-	std::ofstream fout(L"json/items.json", std::ios::binary);
+	std::ofstream fout(L"items.json", std::ios::binary);
 	std::wstring url = L"https://piratescove.maxprogress.bg/inc/api.php?email=" + email;
 	HINTERNET hopen = InternetOpen(L"MyAppName", INTERNET_OPEN_TYPE_PRECONFIG, NULL, NULL, 0);
 	if (hopen)
@@ -32,7 +32,7 @@ void downloadJson(std::wstring email)
 
 Json::Value readJson()
 {
-	ifstream file("json/items.json");
+	ifstream file("items.json");
 	Json::Value actualJson;
 	Json::Reader reader;
 
@@ -76,7 +76,7 @@ bool is_email_valid(const std::string& email)
 
 void login()
 {
-	remove("json/items.json");
+	remove("items.json");
 	while (true) {
 		system("cls");
 		wstring email;
@@ -98,11 +98,11 @@ void login()
 		if (checkPassword(password))
 		{
 			cout << "You have logged successfully!";
-			remove("json/items.json");
+			remove("items.json");
 			break;
 		}
 
-		remove("json/items.json");
+		remove("items.json");
 	}
 }
 
