@@ -4,6 +4,9 @@
 #include <stdio.h>
 #include <Windows.h>
 #include <conio.h>
+#include <fstream>
+#include <WinINet.h>
+
 #include "header/colorSelection.h"
 #include "header/gotoxy.h"
 #include "header/Logo.h"
@@ -11,6 +14,14 @@
 #include "header/theEnd.h"
 #include "header/cave.h"
 #include "header/jungle.h"
+
+
+#include "json/json.h"
+#include "json/value.h"
+#include "json/md5.h"
+#include "json/connection.h"
+
+#pragma comment(lib, "WinINet.lib")
 
 using namespace std;
 
@@ -36,8 +47,6 @@ enum
 WORD displayColor[] = { WHITE, WHITE };
 
 // Coordinates of X and Y
-
-void mainMenu();
 
 void game()
 {
@@ -98,7 +107,6 @@ void game()
 	}
 }
 
-
 void mainMenu()
 {
 	Logo();
@@ -149,8 +157,49 @@ void mainMenu()
 	}
 }
 
+
 int main()
 {
+	char Register;
+
 	SetConsoleTitleA("The Pirate's Cove");
-	mainMenu();
+	
+	while (true)
+	{
+		cout << "Login or Signup? (L/S)";
+		Register = _getch();
+
+		switch (Register)
+		{
+			case 'l':
+			{
+				login();
+				mainMenu();
+				break;
+			}
+			case 'L':
+			{
+				login();
+				mainMenu();
+				break;
+			}
+			case 's':
+			{
+				signup();
+				mainMenu();
+				break;
+			}
+			case 'S':
+			{
+				signup();
+				mainMenu();
+				break;
+			}
+			default:
+			{
+				system("cls");
+				break;
+			}
+		}
+	}
 }
