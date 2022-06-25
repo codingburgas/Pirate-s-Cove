@@ -119,11 +119,11 @@ void mainMenu()
 		if (counter >= 1 && counter <= 2)
 			displayColor[counter - 1] = RED;
 
-		gotoxy(xStartPosition, 10);
+		gotoxy(xStartPosition, 14);
 		colorSelection(displayColor[0]);
 		cout << "1. Start";
 
-		gotoxy(xStartPosition, 11);
+		gotoxy(xStartPosition, 15);
 		colorSelection(displayColor[1]);
 		cout << "2. Exit";
 

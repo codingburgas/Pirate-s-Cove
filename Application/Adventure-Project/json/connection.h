@@ -97,7 +97,7 @@ void login()
 
 		if (checkPassword(password))
 		{
-			cout << "You have login succesfuly";
+			cout << "You have logged successfully!";
 			remove("json/items.json");
 			break;
 		}
