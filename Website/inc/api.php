@@ -29,7 +29,5 @@ if ($conn) {
 		}
 
 		echo str_replace(array('[', ']'), '', htmlspecialchars(json_encode($response), ENT_NOQUOTES));
-
-		//echo json_encode($response, JSON_PRETTY_PRINT);
 	}
 }
