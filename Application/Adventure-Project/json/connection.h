@@ -1,11 +1,12 @@
 #include "json/json.h"
 #include "json/value.h"
 #include "json/md5.h"
+#include <regex>
 
 void downloadJson(std::wstring email)
 {
 
-	std::ofstream fout(L"items.json", std::ios::binary);
+	std::ofstream fout(L"json/items.json", std::ios::binary);
 	std::wstring url = L"https://piratescove.maxprogress.bg/inc/api.php?email=" + email;
 	HINTERNET hopen = InternetOpen(L"MyAppName", INTERNET_OPEN_TYPE_PRECONFIG, NULL, NULL, 0);
 	if (hopen)
@@ -31,7 +32,7 @@ void downloadJson(std::wstring email)
 
 Json::Value readJson()
 {
-	ifstream file("items.json");
+	ifstream file("json/items.json");
 	Json::Value actualJson;
 	Json::Reader reader;
 
@@ -62,12 +63,25 @@ bool checkPassword(string password)
 	return false;
 }
 
+bool is_email_valid(const std::string& email)
+{
+	// define a regular expression
+	const std::regex pattern
+	("(\\w+)(\\.|_)?(\\w*)@(\\w+)(\\.(\\w+))+");
+
+	// try to match the string with the regular expression
+	return std::regex_match(email, pattern);
+}
+
+
 void login()
 {
+	remove("json/items.json");
 	while (true) {
 		system("cls");
-		remove("items.json");
-		std::wstring email;
+		wstring email;
+
+		cout << "Log In" << endl;
 
 		cout << "Your email: ";
 		wcin >> email;
@@ -84,17 +98,65 @@ void login()
 		if (checkPassword(password))
 		{
 			cout << "You have login succesfuly";
-			remove("items.json");
+			remove("json/items.json");
 			break;
 		}
-		else
-			cout << "Access denied";
 
-		remove("items.json");
+		remove("json/items.json");
 	}
 }
 
 void signup()
 {
+	while (true) {
+		system("cls");
+		wstring email;
 
+		cout << "Sign Up" << endl;
+
+		cout << "Your email: ";
+		wcin >> email;
+
+		string emailStr(email.begin(), email.end());
+
+		downloadJson(email);
+		Json::Value json = readJson();
+
+		string emailJson = to_string(json["email"]);
+
+		emailJson = emailJson.substr(1, emailJson.size() - 2);
+
+		if (is_email_valid(emailStr) && emailStr != emailJson) {
+
+			string password;
+
+			cout << "Your password: ";
+			cin >> password;
+
+			string repassword;
+
+			cout << "Your password: ";
+			cin >> repassword;
+
+			if (password.length() > 3 && repassword.length() > 3) {
+
+				password = md5(password);
+				repassword = md5(repassword);
+
+				string link = "https://piratescove.maxprogress.bg/inc/create.inc.php?email=" + emailStr + "&password=" + password;
+
+				wstring temp = wstring(link.begin(), link.end());
+
+				LPCWSTR newLink = temp.c_str();
+
+				if (password == repassword) {
+					ShellExecute(0, 0, newLink, 0, 0, SW_SHOW);
+					login();
+					break;
+				}
+			}
+		}
+		
+
+	}
 }
