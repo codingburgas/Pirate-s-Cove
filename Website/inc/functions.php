@@ -61,7 +61,7 @@ function createUser ($conn, $email, $password) {
 			exit();
 		}
 
-		$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+		$hashedPassword = md5($password);
 		
 		mysqli_stmt_bind_param($stmt, "ss", $email, $hashedPassword);
 		mysqli_stmt_execute($stmt);
@@ -83,7 +83,14 @@ function loginUser($conn, $email, $password) {
 
 
 		$passwordHashed = $emailExists["password"];
-		$checkPassword = password_verify($password, $passwordHashed);
+		
+		$checkPassword;
+
+		if ($passwordHashed !== md5($password)) {
+			$checkPassword = false;	
+		} else  {
+			$checkPassword = true;
+		}
 
 		if ($checkPassword === false) {
 			header('Location: ../login.php?error=invalidlogin');
