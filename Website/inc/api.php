@@ -28,6 +28,8 @@ if ($conn) {
 			$response[$i]['item9'] = $row['item9'];
 		}
 
-		echo json_encode($response, JSON_PRETTY_PRINT);
+		echo str_replace(array('[', ']'), '', htmlspecialchars(json_encode($response), ENT_NOQUOTES));
+
+		//echo json_encode($response, JSON_PRETTY_PRINT);
 	}
 }
