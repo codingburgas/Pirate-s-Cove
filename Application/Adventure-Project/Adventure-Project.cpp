@@ -127,6 +127,7 @@ void game()
 
 	theEnd();
 	Sleep(500);
+	exit(EXIT_SUCCESS);
 }
 
 void mainMenu()

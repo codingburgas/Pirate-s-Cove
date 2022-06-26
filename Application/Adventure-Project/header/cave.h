@@ -78,7 +78,10 @@ void cave()
 	{
 		cout << "As you enter the left tunnel, you notice a small box on a stone pedestal." << endl;
 		cout << "Inside you find a talisman. Wearing it makes you feel more alive! (HP: +1)" << endl << endl;
+
 		playerHealth += 1;
+
+		cout << "Your health is now " << playerHealth << "!" << endl << endl;
 
 		itemToDB(emailStr, "item2", "talisman");
 
@@ -277,7 +280,7 @@ void cave()
 				cout << "It's a tall muscular miner. You discover that he is a zombie, judging by the" << endl;
 				cout << "look of his face and the missing flesh on parts of it." << endl;
 				Sleep(200);
-				cout << "To get the treasure, prepare to fight him. This won't be an easy task." << endl;
+				cout << "To get the treasure, prepare to fight him. This won't be an easy task." << endl << endl;
 				Sleep(200);
 
 				cout << "Continue (Enter)" << endl << endl;
