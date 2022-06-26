@@ -110,8 +110,6 @@ void game()
 			system("cls");
 			jungle();
 		}
-		else
-			theEnd();
 	}
 
 	else if (key == 'J' || key == 'j')
@@ -125,9 +123,10 @@ void game()
 			system("cls"); 
 			cave();
 		}
-		else
-			theEnd();
 	}
+
+	theEnd();
+	Sleep(500);
 }
 
 void mainMenu()
