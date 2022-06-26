@@ -7,6 +7,11 @@
 
 using namespace std;
 
+#ifndef global_variable
+#define global_variable
+wstring email;
+#endif
+
 char key;
 int wolfHP = 8;
 int wolfDmg = 3;
@@ -20,8 +25,24 @@ extern bool winFight;
 extern bool isCaveExplored;
 extern bool isJungleExplored;
 
+#ifndef itemtodbfunction
+#define itemtodbfunction
+void itemToDB(string emailStr, string whichItem, string item)
+{
+	string link = "https://piratescove.maxprogress.bg/inc/upload.php?email=" + emailStr + "&whichItem=" + whichItem + " &item=" + item + "";
+
+	wstring temp = wstring(link.begin(), link.end());
+
+	LPCWSTR newLink = temp.c_str();
+
+	ShellExecute(0, 0, newLink, 0, 0, SW_SHOW);
+}
+#endif
+
 void cave()
 {
+	string emailStr(email.begin(), email.end());
+
 	cout << "You entered the cave. It is really dark inside. You find a torch on the wall." << endl;
 	Sleep(200);
 	cout << "After a long walk, you find two tunnels. On the floor you see two numbers - 8478(left) and 8368(right)" << endl;
@@ -58,6 +79,8 @@ void cave()
 		cout << "As you enter the left tunnel, you notice a small box on a stone pedestal." << endl;
 		cout << "Inside you find a talisman. Wearing it makes you feel more alive! (HP: +1)" << endl << endl;
 		playerHealth += 1;
+
+		itemToDB(emailStr, "item2", "talisman");
 
 		cout << "Continue (Enter)" << endl << endl;
 		key = _getch();
@@ -121,6 +144,9 @@ void cave()
 			playerDefense = 0;
 
 			cout << "After the fight, you feel exhausted. You sit on the ground when suddenly you find a pickaxe." << endl;
+
+			itemToDB(emailStr, "item3", "pickaxe");
+
 			playerDamage = 4;
 			cout << "Your damage is now " << playerDamage << "!" << endl << endl;
 
@@ -184,6 +210,8 @@ void cave()
 			system("CLS");
 
 			cout << "You see a miner's helmet next to it. (DEF: +2)" << endl;
+
+			itemToDB(emailStr, "item4", "helmet");
 
 			playerDefense += 2;
 
@@ -293,6 +321,9 @@ void cave()
 					else if (minerHP <= 0)
 					{
 						cout << "Congratulations! You killed the Zombie Miner! After his death, you pick up the" << endl;
+
+						itemToDB(emailStr, "item5", "zombie trophy");
+
 						cout << "lost chest and escape by digging the nearby wall with your pickaxe!" << endl << endl;
 
 						playerLS = 0;

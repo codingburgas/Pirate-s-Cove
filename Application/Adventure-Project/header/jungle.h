@@ -5,10 +5,15 @@
 #include <Windows.h>
 #include <conio.h>
 
+
 using namespace std;
 
+#ifndef global_variable
+#define global_variable
+wstring email;
+#endif
 
-char da;
+char choice;
 int spiderHP = 7;
 int spiderDmg = 5;
 int queenDmg = 5;
@@ -21,8 +26,24 @@ extern bool winFight;
 extern bool isCaveExplored;
 extern bool isJungleExplored;
 
+#ifndef itemtodbfunction
+#define itemtodbfunction
+void itemToDB(string emailStr, string whichItem, string item)
+{
+	string link = "https://piratescove.maxprogress.bg/inc/upload.php?email=" + emailStr + "&whichItem=" + whichItem + " &item=" + item + "";
+
+	wstring temp = wstring(link.begin(), link.end());
+
+	LPCWSTR newLink = temp.c_str();
+
+	ShellExecute(0, 0, newLink, 0, 0, SW_SHOW);
+}
+#endif
+
 void jungle()
 {
+	string emailStr(email.begin(), email.end());
+
 	cout << "You head towards the jungle, not knowing what you'll find there." << endl;
 
 	Sleep(200);
@@ -50,22 +71,24 @@ void jungle()
 	cout << "The available options are:" << endl;
 	cout << "Sun/Mars/Lightbulb (S/M/L)" << endl;
 
-	da = _getch();
+	choice = _getch();
 
 	system("CLS");
 
-	if (da == 'S' || da == 's')
+	if (choice == 'S' || choice == 's')
 	{
 		cout << "As you confirm your choice, the trap releases you and you barely escape the falling rock above you." << endl;
 		cout << "Since the exit is now blocked, you continue further into the temple." << endl;
 		cout << "While walking, you stumble upon an ancient piece of armor! Wearing makes you feel protected. (DEF: +2)" << endl;
+
+		itemToDB(emailStr, "item6", "armor");
 
 		playerDefense += 2;
 
 		cout << "Your defense is now " << playerDefense << "!" << endl << endl;
 
 		cout << "Continue (Enter)" << endl << endl;
-		da = _getch();
+		choice = _getch();
 
 		system("CLS");
 
@@ -78,17 +101,17 @@ void jungle()
 			cout << "ENEMY HP: " << spiderHP << " ENEMY DMG: " << spiderDmg << endl << endl;
 			cout << "A/D/R" << endl << endl;
 
-			da = _getch();
+			choice = _getch();
 
-			if (da == 'A' || da == 'a')
+			if (choice == 'A' || choice == 'a')
 			{
 				spiderHP -= playerDamage;
 			}
-			else if ((da == 'D' || da == 'd') && playerDefense < 4)
+			else if ((choice == 'D' || choice == 'd') && playerDefense < 4)
 			{
 				playerDefense += 1;
 			}
-			else if ((da == 'R' || da == 'r') && playerHealth < 9)
+			else if ((choice == 'R' || choice == 'r') && playerHealth < 9)
 			{
 				playerHealth += 2;
 			}
@@ -111,11 +134,13 @@ void jungle()
 				cout << "Now that the threat is gone, you open the chest and find a sword," << endl;
 				cout << "which has a red, glowing jem in its handle. (LIFESTEAL: +1; DMG: +3)" << endl << endl;
 
+				itemToDB(emailStr, "item7", "sword");
+
 				playerDamage += 3;
 				playerLS += 1;
 
 				cout << "Continue (Enter)" << endl << endl;
-				da = _getch();
+				choice = _getch();
 
 				system("CLS");
 
@@ -140,13 +165,16 @@ void jungle()
 				cout << "The entrance of the maze splits into two paths. Maybe this code could help you choose the direction?" << endl;
 				cout << "L/R" << endl;
 
-				da = _getch();
+				choice = _getch();
 
 				system("CLS");
 
-				if (da == 'L' || da == 'l')
+				if (choice == 'L' || choice == 'l')
 				{
 					cout << "As you walk down the left path, you notice a spider's tooth, which when worn, gives you more health! (HP: +1)" << endl;
+
+					itemToDB(emailStr, "item8", "tooth");
+
 					playerHealth += 1;
 
 					cout << "Your health is now " << playerHealth << "!" << endl;
@@ -155,7 +183,7 @@ void jungle()
 					cout << "On the other side you see a giant door with a tiny dahole." << endl << endl;
 
 					cout << "Continue (Enter)" << endl << endl;
-					da = _getch();
+					choice = _getch();
 
 					system("CLS");
 
@@ -181,18 +209,18 @@ void jungle()
 
 					cout << "S/W/B" << endl;
 
-					da = _getch();
+					choice = _getch();
 
 					system("CLS");
 
-					if (da == 'S' || da == 's')
+					if (choice == 'S' || choice == 's')
 					{
 						cout << "The ground starts to rumble. A stone foundation connects the two sides so you can cross the gap." << endl;
 						cout << "You walk up to the door and you notice there's a tooth-shaped carving in the door." << endl;
 						cout << "You use the spider tooth amulet from the maze to open the gate." << endl << endl;
 
 						cout << "Continue (Enter)" << endl << endl;
-						da = _getch();
+						choice = _getch();
 
 						system("CLS");
 
@@ -200,7 +228,7 @@ void jungle()
 						cout << "Behind her you see a shiny treasure chest, filled with gold." << endl << endl;
 
 						cout << "Continue (Enter)" << endl << endl;
-						da = _getch();
+						choice = _getch();
 
 						system("CLS");
 
@@ -211,18 +239,18 @@ void jungle()
 							cout << "ENEMY HP: " << queenHP << " ENEMY DMG: " << queenDmg << endl << endl;
 							cout << "A/D/R" << endl << endl;
 
-							da = _getch();
+							choice = _getch();
 
-							if (da == 'A' || da == 'a')
+							if (choice == 'A' || choice == 'a')
 							{
 								queenHP -= playerDamage;
 								playerHealth += playerLS;
 							}
-							else if ((da == 'D' || da == 'd') && playerDefense < 4)
+							else if ((choice == 'D' || choice == 'd') && playerDefense < 4)
 							{
 								playerDefense += 1;
 							}
-							else if ((da == 'R' || da == 'r') && playerHealth < 9)
+							else if ((choice == 'R' || choice == 'r') && playerHealth < 9)
 							{
 								playerHealth += 2;
 							}
@@ -240,6 +268,9 @@ void jungle()
 							else if (queenHP <= 0)
 							{
 								cout << "Congratulations! You killed the Spider Queen! After her graceful death, you claim the" << endl;
+
+								itemToDB(emailStr, "item9", "spider trophy");
+
 								cout << "lost treasure and escape through a hole in the wall" << endl << endl;
 
 								playerLS = 0;
@@ -248,7 +279,7 @@ void jungle()
 								playerDefense = 0;
 								isJungleExplored = true;
 								cout << "Continue (Enter)" << endl << endl;
-								da = _getch();
+								choice = _getch();
 
 								system("CLS");
 							}

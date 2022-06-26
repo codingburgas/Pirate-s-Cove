@@ -15,7 +15,6 @@
 #include "header/cave.h"
 #include "header/jungle.h"
 
-
 #include "json/json.h"
 #include "json/value.h"
 #include "json/md5.h"
@@ -24,6 +23,11 @@
 #pragma comment(lib, "WinINet.lib")
 
 using namespace std;
+
+#ifndef global_variable
+#define global_variable
+wstring email;
+#endif
 
 const int xStartPosition = 50;
 int colorSelectionVar;
@@ -48,8 +52,25 @@ WORD displayColor[] = { WHITE, WHITE };
 
 // Coordinates of X and Y
 
+#ifndef itemtodbfunction
+#define itemtodbfunction
+void itemToDB(string emailStr, string whichItem, string item)
+{
+	string link = "https://piratescove.maxprogress.bg/inc/upload.php?email=" + emailStr + "&whichItem=" + whichItem + " &item=" + item + "";
+
+	wstring temp = wstring(link.begin(), link.end());
+
+	LPCWSTR newLink = temp.c_str();
+
+	ShellExecute(0, 0, newLink, 0, 0, SW_SHOW);
+}
+#endif
+
 void game()
 {
+
+	string emailStr(email.begin(), email.end());
+
 	cout << "You wake up and find yourself on a deserted island." << endl;
 	cout << "You've just survived a shipwreck and you are now looking for a way to survive." << endl;
 	cout << "As you're standing on the warm sand, you're scouting out the area nearby." << endl << endl;
@@ -61,6 +82,8 @@ void game()
 
 	cout << "You see a metal bar. It could be used as a weapon. (DMG: +1)" << endl;
 	cout << "You picked up the metal bar! Your damage is now " << playerDamage << "!" << endl << endl;
+
+	itemToDB(emailStr, "item1","metal bar");
 
 	playerDamage = 2;
 	

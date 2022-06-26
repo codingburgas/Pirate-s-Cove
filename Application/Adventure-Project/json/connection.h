@@ -3,8 +3,6 @@
 #include "json/md5.h"
 #include <regex>
 
-char error;
-
 void downloadJson(std::wstring email)
 {
 
@@ -126,6 +124,8 @@ void errorsForLogin(char error)
 
 void login()
 {
+	char error = ' ';
+
 	remove("items.json");
 	while (true) {
 		system("cls");
@@ -134,7 +134,7 @@ void login()
 
 		error = ' ';
 
-		wstring email;
+		extern wstring email;
 
 		cout << "Your email: ";
 		wcin >> email;
@@ -165,6 +165,8 @@ void login()
 
 void signup()
 {
+	char error = ' ';
+
 	while (true) {
 		system("cls");
 		wstring email;
