@@ -16,7 +16,7 @@
     </div>
     <div class="section-two">
       <div class="column">
-        <a class="download" href="" download><i class="fa fa-download"></i> Download</a>  
+        <a class="download" href="Pirate's Cove.zip" download><i class="fa fa-download"></i> Download</a>  
       </div>
       <div class="column">
         <h1>Let's play, adventurers!</h1>
