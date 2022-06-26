@@ -44,12 +44,9 @@
 This project is licensed under the MIT license. See [License](LICENSE.md) for more
 
 ## <p id = "install">⚙ Installation</p>
-```
-You can download our project by clicking the green "Code" button.
 
-Or by pasting the following code in your CMD:
-git clone https://github.com/codingburgas/2122-the-games--adventures-final-project-adventure-2022.git
-```
+### You can play our game by downloading it from this [link](https://github.com/codingburgas/2122-the-games--adventures-final-project-adventure-2022/releases/download/1.0/Pirate.s.Cove.zip). <br> If you want to visit our website from this [link](http://piratescove.maxprogress.bg/).
+
   ---
 
 # 📚 Have fun while you solve riddles and collect useful items!
