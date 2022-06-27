@@ -24,6 +24,8 @@
 
 using namespace std;
 
+//Defines global variables
+
 #ifndef global_variable
 #define global_variable
 wstring email;
@@ -32,6 +34,8 @@ int playerHealth = 8;
 int playerDamage = 1;
 int playerDefense = 0;
 #endif
+
+//Sends email as string
 
 string emailStr(email.begin(), email.end());
 
@@ -43,6 +47,8 @@ bool winFight = false;
 bool isCaveExplored = false;
 bool isJungleExplored = false;
 
+//Enum is used to assign a color to text more easily
+
 enum
 {
 	BLACK = 0,
@@ -50,6 +56,8 @@ enum
 	YELLOW = FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN,
 	WHITE = FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE,
 };
+
+//Colors the text white when unhovered
 
 WORD displayColor[] = { WHITE, WHITE, WHITE, WHITE };
 
@@ -73,7 +81,6 @@ void mainMenu();
 
 void game()
 {
-
 	cout << "You wake up and find yourself on a deserted island." << endl;
 	cout << "You've just survived a shipwreck and you are now looking for a way to survive." << endl;
 	cout << "As you're standing on the warm sand, you're scouting out the area nearby." << endl << endl;
@@ -91,10 +98,13 @@ void game()
 ~~,;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,  ______   ---------   _____     ------
 	)" << endl << endl;
+
 	cout << "Continue" << endl << endl;
 	key = _getch();
 
 	system("CLS");
+
+	playerDamage = 2;
 
 	cout << "You see a metal bar. It could be used as a weapon. (DMG: +1)" << endl;
 	cout << "You picked up the metal bar! Your damage is now " << playerDamage << "!" << endl << endl;
@@ -102,8 +112,6 @@ void game()
 	if (registration == true) {
 		itemToDB(emailStr, "item1", "metal bar");
 	}
-
-	playerDamage = 2;
 	
 	cout << "Continue" << endl << endl;
 	key = _getch();
@@ -120,6 +128,7 @@ void game()
 	if (key == 'C' || key == 'c')
 	{
 		cave();
+
 		if (isJungleExplored == false)
 		{
 			cout << "After this adventure, you think that maybe it's time to explore the jungle." << endl << endl;
@@ -165,6 +174,8 @@ void afterLogin()
 
 	while (true)
 	{
+		//Array with different options assigned
+
 		if (counter >= 1 && counter <= 4)
 			displayColor[counter - 1] = RED;
 
@@ -172,23 +183,25 @@ void afterLogin()
 		cout << "Logged in as: ";
 		wcout << email;
 
-		gotoxy(xStartPosition, 14);
+		gotoxy(xStartPosition, 10);
 		colorSelection(displayColor[0]);
 		cout << "1. Start";
 
-		gotoxy(xStartPosition, 15);
+		gotoxy(xStartPosition, 11);
 		colorSelection(displayColor[1]);
 		cout << "2. Logout";
 
-		gotoxy(xStartPosition, 16);
+		gotoxy(xStartPosition, 12);
 		colorSelection(displayColor[3]);
 		cout << "3. Exit";
 
 		key = _getch();
 
-		if (key == 80 && (counter >= 1 && counter <= 3)) // 80 - down arrow (keyboard)
+		// 80 - down arrow (keyboard)
+		if (key == 80 && (counter >= 1 && counter <= 3)) 
 			counter++;
-		if (key == 72 && (counter >= 2 && counter <= 4)) // 72 - up arrow (keyboard)
+		// 72 - up arrow (keyboard)
+		if (key == 72 && (counter >= 2 && counter <= 4)) 
 			counter--;
 
 		//carriage return - enter (keyboard)
@@ -232,19 +245,19 @@ void mainMenu()
 		if (counter >= 1 && counter <= 4)
 			displayColor[counter - 1] = RED;
 
-		gotoxy(xStartPosition, 14);
+		gotoxy(xStartPosition, 10);
 		colorSelection(displayColor[0]);
 		cout << "1. Start";
 
-		gotoxy(xStartPosition, 15);
+		gotoxy(xStartPosition, 11);
 		colorSelection(displayColor[1]);
 		cout << "2. Log In";
 
-		gotoxy(xStartPosition, 16);
+		gotoxy(xStartPosition, 12);
 		colorSelection(displayColor[2]);
 		cout << "3. Sign Up";
 
-		gotoxy(xStartPosition, 17);
+		gotoxy(xStartPosition, 13);
 		colorSelection(displayColor[3]);
 		cout << "4. Exit";
 
