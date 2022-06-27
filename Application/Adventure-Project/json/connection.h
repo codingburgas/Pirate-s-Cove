@@ -125,6 +125,9 @@ void errorsForLogin(char error)
 void login()
 {
 	char error = ' ';
+	extern bool registration;
+
+	registration = false;
 
 	remove("items.json");
 	while (true) {
@@ -154,6 +157,7 @@ void login()
 		{
 			cout << "You have logged successfully!";
 			remove("items.json");
+			registration = true;
 			break;
 		} else {
 			error = 'i';
@@ -227,4 +231,11 @@ void signup()
 		
 
 	}
+}
+
+void logout()
+{
+	string emailStr(email.begin(), email.end());
+	emailStr = " ";
+	system("cls");
 }

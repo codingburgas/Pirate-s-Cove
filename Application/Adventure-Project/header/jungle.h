@@ -11,7 +11,9 @@ using namespace std;
 #ifndef global_variable
 #define global_variable
 wstring email;
+bool registartion;
 #endif
+
 
 char choice;
 int spiderHP = 7;
@@ -81,7 +83,9 @@ void jungle()
 		cout << "Since the exit is now blocked, you continue further into the temple." << endl;
 		cout << "While walking, you stumble upon an ancient piece of armor! Wearing makes you feel protected. (DEF: +2)" << endl;
 
-		itemToDB(emailStr, "item6", "armor");
+		if (registration = true) {
+			itemToDB(emailStr, "item6", "armor");
+		}
 
 		playerDefense += 2;
 
@@ -134,7 +138,9 @@ void jungle()
 				cout << "Now that the threat is gone, you open the chest and find a sword," << endl;
 				cout << "which has a red, glowing jem in its handle. (LIFESTEAL: +1; DMG: +3)" << endl << endl;
 
-				itemToDB(emailStr, "item7", "sword");
+				if (registration = true) {
+					itemToDB(emailStr, "item7", "sword");
+				}
 
 				playerDamage += 3;
 				playerLS += 1;
@@ -173,7 +179,9 @@ void jungle()
 				{
 					cout << "As you walk down the left path, you notice a spider's tooth, which when worn, gives you more health! (HP: +1)" << endl;
 
-					itemToDB(emailStr, "item8", "tooth");
+					if (registration = true) {
+						itemToDB(emailStr, "item8", "tooth");
+					}
 
 					playerHealth += 1;
 
@@ -269,7 +277,9 @@ void jungle()
 							{
 								cout << "Congratulations! You killed the Spider Queen! After her graceful death, you claim the" << endl;
 
-								itemToDB(emailStr, "item9", "spider trophy");
+								if (registration = true) {
+									itemToDB(emailStr, "item9", "spider trophy");
+								}
 
 								cout << "lost treasure and escape through a hole in the wall" << endl << endl;
 

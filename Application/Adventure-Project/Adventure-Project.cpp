@@ -27,7 +27,10 @@ using namespace std;
 #ifndef global_variable
 #define global_variable
 wstring email;
+bool registration;
 #endif
+
+string emailStr(email.begin(), email.end());
 
 const int xStartPosition = 50;
 int colorSelectionVar;
@@ -48,7 +51,7 @@ enum
 	WHITE = FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE,
 };
 
-WORD displayColor[] = { WHITE, WHITE };
+WORD displayColor[] = { WHITE, WHITE, WHITE, WHITE };
 
 // Coordinates of X and Y
 
@@ -69,8 +72,6 @@ void itemToDB(string emailStr, string whichItem, string item)
 void game()
 {
 
-	string emailStr(email.begin(), email.end());
-
 	cout << "You wake up and find yourself on a deserted island." << endl;
 	cout << "You've just survived a shipwreck and you are now looking for a way to survive." << endl;
 	cout << "As you're standing on the warm sand, you're scouting out the area nearby." << endl << endl;
@@ -83,7 +84,9 @@ void game()
 	cout << "You see a metal bar. It could be used as a weapon. (DMG: +1)" << endl;
 	cout << "You picked up the metal bar! Your damage is now " << playerDamage << "!" << endl << endl;
 
-	itemToDB(emailStr, "item1","metal bar");
+	if (registration == true) {
+		itemToDB(emailStr, "item1", "metal bar");
+	}
 
 	playerDamage = 2;
 	
@@ -130,17 +133,21 @@ void game()
 	exit(EXIT_SUCCESS);
 }
 
-void mainMenu()
+void afterLogin()
 {
 	Logo();
 
 	int counter = 1;
 	char key;
 
-	while(true)
+	while (true)
 	{
-		if (counter >= 1 && counter <= 2)
+		if (counter >= 1 && counter <= 4)
 			displayColor[counter - 1] = RED;
+
+		gotoxy(2, 20);
+		cout << "Logged in as: ";
+		wcout << email;
 
 		gotoxy(xStartPosition, 14);
 		colorSelection(displayColor[0]);
@@ -148,19 +155,23 @@ void mainMenu()
 
 		gotoxy(xStartPosition, 15);
 		colorSelection(displayColor[1]);
-		cout << "2. Exit";
+		cout << "2. Logout";
+
+		gotoxy(xStartPosition, 16);
+		colorSelection(displayColor[3]);
+		cout << "3. Exit";
 
 		key = _getch();
 
-		if (key == 72 && (counter == 2)) // 72 - up arrow (keyboard)
-			counter--;
-		if (key == 80 && (counter == 1)) // 80 - down arrow (keyboard)
+		if (key == 80 && (counter >= 1 && counter <= 3)) // 80 - down arrow (keyboard)
 			counter++;
+		if (key == 72 && (counter >= 2 && counter <= 4)) // 72 - up arrow (keyboard)
+			counter--;
 
 		//carriage return - enter (keyboard)
 		if (key == '\r')
 		{
-			for (int i = 0; i < 2; i++)
+			for (int i = 0; i < 3; i++)
 				displayColor[i] = WHITE;
 
 			system("CLS");
@@ -172,57 +183,95 @@ void mainMenu()
 			}
 			else if (counter == 2)
 			{
+				logout();
+				mainMenu();
+				break;
+			}
+			else if (counter == 3)
+			{
 				exit(EXIT_SUCCESS);
 			}
 		}
-		for (int i = 0; i < 2; i++)
+		for (int i = 0; i < 3; i++)
 			displayColor[i] = WHITE;
 	}
 }
 
+void mainMenu()
+{
+	Logo();
+
+	int counter = 1;
+	char key;
+
+	while(true)
+	{
+		if (counter >= 1 && counter <= 4)
+			displayColor[counter - 1] = RED;
+
+		gotoxy(xStartPosition, 14);
+		colorSelection(displayColor[0]);
+		cout << "1. Start";
+
+		gotoxy(xStartPosition, 15);
+		colorSelection(displayColor[1]);
+		cout << "2. Log In";
+
+		gotoxy(xStartPosition, 16);
+		colorSelection(displayColor[2]);
+		cout << "3. Sign Up";
+
+		gotoxy(xStartPosition, 17);
+		colorSelection(displayColor[3]);
+		cout << "4. Exit";
+
+		key = _getch();
+
+		if (key == 80 && (counter >= 1 && counter <= 3)) // 80 - down arrow (keyboard)
+			counter++;
+		if (key == 72 && (counter >= 2 && counter <= 4)) // 72 - up arrow (keyboard)
+			counter--;
+
+		//carriage return - enter (keyboard)
+		if (key == '\r')
+		{
+			for (int i = 0; i < 4; i++)
+				displayColor[i] = WHITE;
+
+			system("CLS");
+
+			if (counter == 1)
+			{
+				game();
+				break;
+			}
+			else if (counter == 2)
+			{
+				login();
+				system("CLS");
+				afterLogin();
+				break;
+			}
+			else if (counter == 3)
+			{
+				signup();
+				system("CLS");
+				afterLogin();
+				break;
+			}
+			else if (counter == 4)
+			{
+				exit(EXIT_SUCCESS);
+			}
+		}
+		for (int i = 0; i < 4; i++)
+			displayColor[i] = WHITE;
+	}
+}
 
 int main()
 {
-	char Register;
-
 	SetConsoleTitleA("The Pirate's Cove");
 	
-	while (true)
-	{
-		cout << "Login or Signup? (L/S)";
-		Register = _getch();
-
-		switch (Register)
-		{
-			case 'l':
-			{
-				login();
-				mainMenu();
-				break;
-			}
-			case 'L':
-			{
-				login();
-				mainMenu();
-				break;
-			}
-			case 's':
-			{
-				signup();
-				mainMenu();
-				break;
-			}
-			case 'S':
-			{
-				signup();
-				mainMenu();
-				break;
-			}
-			default:
-			{
-				system("cls");
-				break;
-			}
-		}
-	}
+	mainMenu();
 }
