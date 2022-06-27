@@ -110,7 +110,7 @@ void game()
 
 	system("CLS");
 
-	cout << "You see a cave and a jungle. Where do you want to go?" << endl;
+	cout << "You see a cave and a jungle. Where do you want to go?" << endl << endl;
 	cout << "C/J" << endl;
 
 	key = _getch();

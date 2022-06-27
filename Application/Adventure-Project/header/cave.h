@@ -40,6 +40,111 @@ void itemToDB(string emailStr, string whichItem, string item)
 }
 #endif
 
+void wolfStanding()
+{
+	cout << "Attack, Defend or Rest!" << endl << endl;
+	cout << "DMG: " << playerDamage << " DEF: " << playerDefense << " HP: " << playerHealth << endl << endl;
+	cout << "ENEMY HP: " << wolfHP << " ENEMY DMG: " << wolfDmg << endl << endl;
+	cout << "A/D/R" << endl << endl;
+
+	cout << R"(
+
+         )      (\_            \  O_\
+        ((    _/{  "-;          \-'\
+         )).-' {{ ;'`             / |
+        ( (  ;._ \\               |  \
+
+        )";
+}
+
+void wolfDefense()
+{
+	system("cls");
+
+	cout << "Attack, Defend or Rest!" << endl << endl;
+	cout << "DMG: " << playerDamage << " DEF: " << playerDefense << " HP: " << playerHealth << endl << endl;
+	cout << "ENEMY HP: " << wolfHP << " ENEMY DMG: " << wolfDmg << endl << endl;
+	cout << "A/D/R" << endl << endl;
+
+	cout << R"(
+
+         )      (\_        O_\
+        ((    _/{  "-;   (-'\
+         )).-' {{ ;'`     / |
+        ( (  ;._ \\       |  \
+
+        )";
+
+	Sleep(500);
+	system("cls");
+}
+
+void wolfRest()
+{
+	system("cls");
+
+	cout << "Attack, Defend or Rest!" << endl << endl;
+	cout << "DMG: " << playerDamage << " DEF: " << playerDefense << " HP: " << playerHealth << endl << endl;
+	cout << "ENEMY HP: " << wolfHP << " ENEMY DMG: " << wolfDmg << endl << endl;
+	cout << "A/D/R" << endl << endl;
+
+	cout << R"(
+
+                          (`')
+                           \/	Healed!
+	
+         )      (\_     \  O_\
+        ((    _/{  "-;   \-'\
+         )).-' {{ ;'`     / |
+        ( (  ;._ \\       |  \
+
+        )";
+
+	Sleep(500);
+	system("cls");
+}
+
+void attackWolf1()
+{
+	system("cls");
+
+	cout << "Attack, Defend or Rest!" << endl << endl;
+	cout << "DMG: " << playerDamage << " DEF: " << playerDefense << " HP: " << playerHealth << endl << endl;
+	cout << "ENEMY HP: " << wolfHP << " ENEMY DMG: " << wolfDmg << endl << endl;
+	cout << "A/D/R" << endl << endl;
+
+	cout << R"(
+
+         )      (\_          O_\
+        ((    _/{  "-;  ---(-'\
+         )).-' {{ ;'`       / |
+        ( (  ;._ \\         |  \
+
+        )";
+
+	Sleep(100);
+	system("cls");
+}
+
+void attackWolf2()
+{
+	cout << "Attack, Defend or Rest!" << endl << endl;
+	cout << "DMG: " << playerDamage << " DEF: " << playerDefense << " HP: " << playerHealth << endl << endl;
+	cout << "ENEMY HP: " << wolfHP << " ENEMY DMG: " << wolfDmg << endl << endl;
+	cout << "A/D/R" << endl << endl;
+
+	cout << R"(
+
+         )      (\_        O_\
+        ((    _/{  "-;---(-'\
+         )).-' {{ ;'`     / |
+        ( (  ;._ \\       |  \
+
+        )";
+	Sleep(100);
+	system("cls");
+}
+
 void cave()
 {
 	string emailStr(email.begin(), email.end());
@@ -112,43 +217,56 @@ void cave()
 
 	while (wolfHP >= 1 && playerHealth >= 1)
 	{
-		cout << "Attack, Defend or Rest!" << endl << endl;
-		cout << "DMG: " << playerDamage << " DEF: " << playerDefense << " HP: " << playerHealth << endl << endl;
-		cout << "ENEMY HP: " << wolfHP << " ENEMY DMG: " << wolfDmg << endl << endl;
-		cout << "A/D/R" << endl << endl;
 
-		key = _getch();
-
-		if (key == 'A' || key == 'a')
+		while (true)
 		{
-			wolfHP -= playerDamage;
+			wolfStanding();
+
+			key = _getch();
+
+			if (key == 'A' || key == 'a')
+			{
+				attackWolf1();
+				attackWolf2();
+				attackWolf1();
+				wolfHP -= playerDamage;
+			}
+			else if ((key == 'D' || key == 'd') && playerDefense < 2)
+			{
+				wolfDefense();
+				playerDefense += 1;
+			}
+			else if ((key == 'R' || key == 'r') && playerHealth < 9)
+			{
+				wolfRest();
+				playerHealth += 2;
+			}
+
+			playerHealth -= wolfDmg - playerDefense;
+
+			system("CLS");
+
+			if (playerHealth <= 0)
+			{
+				cout << "You died! Game over!";
+				gameOver();
+				exit(EXIT_SUCCESS);
+
+			}
+			else if (wolfHP <= 0)
+			{
+				cout << "You won the fight! The wolf dropped to the ground, dead." << endl;
+
+				playerHealth = 9;
+				playerDefense = 0;
+				break;
+			}
 		}
-		else if ((key == 'D' || key == 'd') && playerDefense < 2)
-		{
-			playerDefense += 1;
-		}
-		else if ((key == 'R' || key == 'r') && playerHealth < 9)
-		{
-			playerHealth += 2;
-		}
+	}
 
-		playerHealth -= wolfDmg - playerDefense;
+		
 
-		system("CLS");
-
-		if (playerHealth <= 0)
-		{
-			cout << "You died! Game over!";
-			gameOver();
-
-		}
-		else if (wolfHP <= 0)
-		{
-			cout << "You won the fight! The wolf dropped to the ground, dead." << endl;
-
-			playerHealth = 9;
-			playerDefense = 0;
-
+		
 			cout << "After the fight, you feel exhausted. You sit on the ground when suddenly you find a pickaxe." << endl;
 
 			if (registration == true) {
@@ -343,6 +461,7 @@ void cave()
 						playerDamage = 2;
 						playerDefense = 0;
 						isCaveExplored = true;
+
 						cout << "Continue (Enter)" << endl << endl;
 						key = _getch();
 
@@ -356,6 +475,5 @@ void cave()
 				cout << "One falls on you and crushes you.";
 				gameOver();
 			}
-		}
-	}
+			
 }
