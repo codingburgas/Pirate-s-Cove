@@ -69,13 +69,28 @@ void itemToDB(string emailStr, string whichItem, string item)
 }
 #endif
 
+void mainMenu();
+
 void game()
 {
 
 	cout << "You wake up and find yourself on a deserted island." << endl;
 	cout << "You've just survived a shipwreck and you are now looking for a way to survive." << endl;
 	cout << "As you're standing on the warm sand, you're scouting out the area nearby." << endl << endl;
-
+	cout << R"(
+          ___   ____
+        /' --;^/ ,-_\     \ | /
+       / / --o\ o-\ \\   --(_)--
+      /-/-/|o|-|\-\\|\\   / | \
+       '`  ` |-|   `` '
+             |-|
+             |-|O
+             |-(\,__
+          ...|-|\--,\_....
+      ,;;;;;;;;;;;;;;;;;;;;;;;;,.
+~~,;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,  ______   ---------   _____     ------
+	)" << endl << endl;
 	cout << "Continue" << endl << endl;
 	key = _getch();
 
@@ -128,6 +143,7 @@ void game()
 		}
 	}
 
+	system("cls");
 	theEnd();
 	Sleep(500);
 	exit(EXIT_SUCCESS);

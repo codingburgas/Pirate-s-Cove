@@ -84,7 +84,7 @@ void cave()
 
 		cout << "Your health is now " << playerHealth << "!" << endl << endl;
 
-		if (registration = true) {
+		if (registration == true) {
 			itemToDB(emailStr, "item2", "talisman");
 		}
 
@@ -332,7 +332,7 @@ void cave()
 					{
 						cout << "Congratulations! You killed the Zombie Miner! After his death, you pick up the" << endl;
 
-						if (registration = true) {
+						if (registration == true) {
 							itemToDB(emailStr, "item5", "zombie trophy");
 						}
 

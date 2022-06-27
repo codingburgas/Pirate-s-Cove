@@ -9,9 +9,12 @@ void theEnd()
 	cout << "After a while, a group of seamen find you and take you to land." << endl;
 	cout << "You go back home and tell your friends about the wild adventure you had been through!" << endl << endl;
 
-	cout << "Continue" << endl;
-
-	system("CLS");
+	cout << R"(
+                     O
+        \O/ _O _O    #=\
+       __#__\#_\#____H_ \ 
+   _  (   :  \  \  :   )(\ 
+	)" << endl << endl << endl;
 	cout << R"(
 
 		 ________ ______  _____  _____ 
