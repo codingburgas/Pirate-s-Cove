@@ -124,7 +124,9 @@ void game()
 		{
 			cout << "After this adventure, you think that maybe it's time to explore the jungle." << endl << endl;
 			cout << "Go to the jungle";
+
 			key = _getch();
+
 			system("cls");
 			jungle();
 		}
@@ -133,19 +135,24 @@ void game()
 	else if (key == 'J' || key == 'j')
 	{
 		jungle();
+
 		if (isCaveExplored == false)
 		{
-			cout << "After conquering the jungle, maybe it's time to explore the cave." << endl;
+			cout << "After conquering the jungle, maybe it's time to explore the cave." << endl << endl;
 			cout << "Go to the cave";
+
 			key = _getch();
+
 			system("cls"); 
 			cave();
 		}
 	}
 
 	system("cls");
+
 	theEnd();
 	Sleep(500);
+
 	exit(EXIT_SUCCESS);
 }
 

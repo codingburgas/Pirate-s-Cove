@@ -40,6 +40,160 @@ void itemToDB(string emailStr, string whichItem, string item)
 }
 #endif
 
+void zombieRest()
+{
+	system("cls");
+
+	cout << "Attack, Defend or Rest!" << endl << endl;
+	cout << "DMG: " << playerDamage << " DEF: " << playerDefense << " HP: " << playerHealth << endl << endl;
+	cout << "ENEMY HP: " << minerHP << " ENEMY DMG: " << minerDmg << endl << endl;
+	cout << "A/D/R" << endl << endl;
+
+	cout << R"(
+
+              ,
+          _,-""-._
+        ,"        ".
+       /    ,-,  ,"\
+      "    /   \ | o|
+      \    `-o-"  `-',
+       `,   _.--'`'--`
+         `--`---'               (`')
+           ,' '                  \/   Healed!
+         ./ ,  `,                        
+         / /     \             \  O_\    
+        (_)))_ _,"              \-'\
+           _))))_,                / |
+          (_,-._)))               |  \
+
+
+        )";
+
+	Sleep(500);
+	system("cls");
+}
+
+void zombieStanding()
+{
+	cout << "Attack, Defend or Rest!" << endl << endl;
+	cout << "DMG: " << playerDamage << " DEF: " << playerDefense << " HP: " << playerHealth << endl << endl;
+	cout << "ENEMY HP: " << minerHP << " ENEMY DMG: " << minerDmg << endl << endl;
+	cout << "A/D/R" << endl << endl;
+
+	cout << R"(
+
+              ,
+          _,-""-._
+        ,"        ".
+       /    ,-,  ,"\
+      "    /   \ | o|
+      \    `-o-"  `-',
+       `,   _.--'`'--`
+         `--`---'            
+           ,' '      
+         ./ ,  `,            
+         / /     \             \  O_\    
+        (_)))_ _,"              \-'\
+           _))))_,                / |
+          (_,-._)))               |  \
+
+
+        )";
+}
+
+void zombieDefense()
+{
+	system("cls");
+
+	cout << "Attack, Defend or Rest!" << endl << endl;
+	cout << "DMG: " << playerDamage << " DEF: " << playerDefense << " HP: " << playerHealth << endl << endl;
+	cout << "ENEMY HP: " << minerHP << " ENEMY DMG: " << minerDmg << endl << endl;
+	cout << "A/D/R" << endl << endl;
+
+	cout << R"(
+
+              ,
+          _,-""-._
+        ,"        ".
+       /    ,-,  ,"\
+      "    /   \ | o|
+      \    `-o-"  `-',
+       `,   _.--'`'--`
+         `--`---'            
+           ,' '      
+         ./ ,  `,            
+         / /     \                O_\    
+        (_)))_ _,"              (-'\
+           _))))_,                / |
+          (_,-._)))               |  \
+
+        )";
+
+	Sleep(500);
+	system("cls");
+}
+
+void zombieAttack1()
+{
+	system("cls");
+
+	cout << "Attack, Defend or Rest!" << endl << endl;
+	cout << "DMG: " << playerDamage << " DEF: " << playerDefense << " HP: " << playerHealth << endl << endl;
+	cout << "ENEMY HP: " << minerHP << " ENEMY DMG: " << minerDmg << endl << endl;
+	cout << "A/D/R" << endl << endl;
+
+	cout << R"(
+
+              ,
+          _,-""-._
+        ,"        ".
+       /    ,-,  ,"\
+      "    /   \ | o|
+      \    `-o-"  `-',
+       `,   _.--'`'--`
+         `--`---'            
+           ,' '      
+         ./ ,  `,            
+         / /     \                O_\    
+        (_)))_ _,"           ---(-'\
+           _))))_,                / |
+          (_,-._)))               |  \
+
+        )";
+
+	Sleep(100);
+	system("cls");
+}
+
+void zombieAttack2()
+{
+	cout << "Attack, Defend or Rest!" << endl << endl;
+	cout << "DMG: " << playerDamage << " DEF: " << playerDefense << " HP: " << playerHealth << endl << endl;
+	cout << "ENEMY HP: " << minerHP << " ENEMY DMG: " << minerDmg << endl << endl;
+	cout << "A/D/R" << endl << endl;
+
+	cout << R"(
+
+              ,
+          _,-""-._
+        ,"        ".
+       /    ,-,  ,"\
+      "    /   \ | o|
+      \    `-o-"  `-',
+       `,   _.--'`'--`
+         `--`---'            
+           ,' '      
+         ./ ,  `,            
+         / /     \     O_\    
+        (_)))_ _,"---(-'\
+           _))))_,     / |
+          (_,-._)))    |  \
+
+        )";
+	Sleep(100);
+	system("cls");
+}
+
 void wolfStanding()
 {
 	cout << "Attack, Defend or Rest!" << endl << endl;
@@ -415,57 +569,63 @@ void cave()
 
 				while (minerHP >= 1 && playerHealth >= 1)
 				{
-					cout << "Attack, Defend or Rest!" << endl << endl;
-					cout << "DMG: " << playerDamage << " DEF: " << playerDefense << " HP: " << playerHealth << endl << endl;
-					cout << "ENEMY HP: " << minerHP << " ENEMY DMG: " << minerDmg << endl << endl;
-					cout << "A/D/R" << endl << endl;
-
-					key = _getch();
-
-					if (key == 'A' || key == 'a')
+					while (true)
 					{
-						minerHP -= playerDamage;
-						playerHealth += playerLS;
-					}
-					else if ((key == 'D' || key == 'd') && playerDefense < 4)
-					{
-						playerDefense += 1;
-					}
-					else if ((key == 'R' || key == 'r') && playerHealth < 9)
-					{
-						playerHealth += 2;
-					}
+						zombieStanding();
 
-					playerHealth -= minerDmg - playerDefense;
-
-					system("CLS");
-
-					if (playerHealth <= 0)
-					{
-						cout << "You died! Game over!";
-						gameOver();
-
-					}
-					else if (minerHP <= 0)
-					{
-						cout << "Congratulations! You killed the Zombie Miner! After his death, you pick up the" << endl;
-
-						if (registration == true) {
-							itemToDB(emailStr, "item5", "zombie trophy");
-						}
-
-						cout << "lost chest and escape by digging the nearby wall with your pickaxe!" << endl << endl;
-
-						playerLS = 0;
-						playerHealth = 8;
-						playerDamage = 2;
-						playerDefense = 0;
-						isCaveExplored = true;
-
-						cout << "Continue (Enter)" << endl << endl;
 						key = _getch();
 
+						if (key == 'A' || key == 'a')
+						{
+							zombieAttack1();
+							zombieAttack2();
+							zombieAttack1();
+							minerHP -= playerDamage;
+						}
+						else if ((key == 'D' || key == 'd') && playerDefense < 4)
+						{
+							zombieDefense();
+							playerDefense += 1;
+						}
+						else if ((key == 'R' || key == 'r') && playerHealth < 9)
+						{
+							zombieRest();
+							playerHealth += 2;
+						}
+
+						playerHealth -= minerDmg - playerDefense;
+
 						system("CLS");
+
+						if (playerHealth <= 0)
+						{
+							cout << "You died! Game over!";
+							gameOver();
+							exit(EXIT_SUCCESS);
+
+						}
+						else if (minerHP <= 0)
+						{
+							cout << "Congratulations! You killed the Zombie Miner! After his death, you pick up the" << endl;
+
+							if (registration == true) {
+								itemToDB(emailStr, "item5", "zombie trophy");
+							}
+
+							cout << "lost chest and escape by digging the nearby wall with your pickaxe!" << endl << endl;
+
+							playerLS = 0;
+							playerHealth = 8;
+							playerDamage = 2;
+							playerDefense = 0;
+							isCaveExplored = true;
+
+							cout << "Continue (Enter)" << endl << endl;
+							key = _getch();
+
+							system("CLS");
+							break;
+						}
 					}
 				}
 			}

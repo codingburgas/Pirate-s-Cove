@@ -50,9 +50,6 @@ void queenRest()
 	cout << "A/D/R" << endl << endl;
 
 	cout << R"(
-
-                                 |
-                                 |
                                  |
                                  |
                                  |
@@ -92,9 +89,6 @@ void queenStanding()
 	cout << "A/D/R" << endl << endl;
 
 	cout << R"(        
-
-                                 |
-                                 |
                                  |
                                  |
                                  |
@@ -131,9 +125,6 @@ void queenDefense()
 	cout << "A/D/R" << endl << endl;
 
 	cout << R"(
-
-                                 |
-                                 |
                                  |
                                  |
                                  |
@@ -174,9 +165,6 @@ void queenAttack1()
 	cout << "A/D/R" << endl << endl;
 
 	cout << R"(
-
-                                 |
-                                 |
                                  |
                                  |
                                  |
@@ -215,9 +203,6 @@ void queenAttack2()
 	cout << "A/D/R" << endl << endl;
 
 	cout << R"(
-
-                                 |
-                                 |
                                  |
                                  |
                                  |
