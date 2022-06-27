@@ -1,3 +1,4 @@
+
 int queenDmg;
 int queenHP;
 
@@ -11,7 +12,6 @@ void queenRest()
     cout << "ENEMY HP: " << queenHP << " ENEMY DMG: " << queenDmg << endl << endl;
     cout << "A/D/R" << endl << endl;
 
-    gotoxy(10, 5);
     cout << R"(
                                  |
                                  |
@@ -51,7 +51,6 @@ void queenStanding()
     cout << "ENEMY HP: " << queenHP << " ENEMY DMG: " << queenDmg << endl << endl;
     cout << "A/D/R" << endl << endl;
 
-    gotoxy(10, 5);
     cout << R"(        
                                  |
                                  |
@@ -88,7 +87,6 @@ void queenDefense()
     cout << "ENEMY HP: " << queenHP << " ENEMY DMG: " << queenDmg << endl << endl;
     cout << "A/D/R" << endl << endl;
 
-    gotoxy(10, 5);
     cout << R"(
                                  |
                                  |
@@ -129,7 +127,6 @@ void queenAttack1()
     cout << "ENEMY HP: " << queenHP << " ENEMY DMG: " << queenDmg << endl << endl;
     cout << "A/D/R" << endl << endl;
 
-    gotoxy(10, 5);
     cout << R"(
                                  |
                                  |
@@ -168,7 +165,6 @@ void queenAttack2()
     cout << "ENEMY HP: " << queenHP << " ENEMY DMG: " << queenDmg << endl << endl;
     cout << "A/D/R" << endl << endl;
 
-    gotoxy(10, 5);
     cout << R"(
                                  |
                                  |

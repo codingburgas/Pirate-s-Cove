@@ -16,8 +16,6 @@ wstring email;
 bool registartion;
 #endif
 
-//Initialise variables
-
 char choice;
 extern int spiderHP = 7;
 extern int spiderDmg = 5;
@@ -30,8 +28,6 @@ extern int playerDefense;
 extern bool winFight;
 extern bool isCaveExplored;
 extern bool isJungleExplored;
-
-//Send items to database
 
 #ifndef itemtodbfunction
 #define itemtodbfunction
@@ -47,12 +43,8 @@ void itemToDB(string emailStr, string whichItem, string item)
 }
 #endif
 
-//Begin jungle section
-
 void jungle()
 {
-	//Sends email as string
-
 	string emailStr(email.begin(), email.end());
 
 	cout << "You head towards the jungle, not knowing what you'll find there." << endl;
@@ -107,19 +99,14 @@ void jungle()
 
 		cout << "You find a room with a chest inside. When you go to open it, a spider jumps from the ceiling, landing in front of you!" << endl;
 
-		//Loop stops when the player or monster die
-
 		while (spiderHP >= 1 && playerHealth >= 1)
 		{
-			//Outputs idle position animation
 
 			while (true)
 			{
 				spiderStanding();
 
 				key = _getch();
-
-				//Plays different animations based on input
 
 				if (key == 'A' || key == 'a')
 				{
@@ -143,8 +130,6 @@ void jungle()
 
 				system("CLS");
 
-				//If the player dies, game over
-
 				if (playerHealth <= 0)
 				{
 					cout << "You died! Game over!";
@@ -161,7 +146,6 @@ void jungle()
 					break;
 				}
 			}
-
 			cout << "Now that the threat is gone, you open the chest and find a sword," << endl;
 			cout << "which has a red, glowing jem in its handle. (LIFESTEAL: +1; DMG: +3)" << endl << endl;
 
@@ -206,8 +190,6 @@ void jungle()
 			{
 				cout << "As you walk down the left path, you notice a spider's tooth, which when worn, gives you more health! (HP: +1)" << endl;
 
-				//Sends item to database
-
 				if (registration == true) {
 					itemToDB(emailStr, "item8", "tooth");
 				}
@@ -217,7 +199,7 @@ void jungle()
 				cout << "Your health is now " << playerHealth << "!" << endl;
 
 				cout << "After you pass the maze, you see what looks like a bridge, split in half." << endl;
-				cout << "On the other side you see a giant door with a tiny keyhole." << endl << endl;
+				cout << "On the other side you see a giant door with a tiny dahole." << endl << endl;
 
 				cout << "Continue (Enter)" << endl << endl;
 				choice = _getch();
@@ -269,19 +251,13 @@ void jungle()
 
 					system("CLS");
 
-					//Loop stops when the player or monster die
-
 					while (queenHP >= 1 && playerHealth >= 1)
 					{
-						//Outputs idle position animation
-
 						while (true)
 						{
 							queenStanding();
 
 							key = _getch();
-
-							//Plays different animations based on input
 
 							if (key == 'A' || key == 'a')
 							{
@@ -304,8 +280,6 @@ void jungle()
 							playerHealth -= queenDmg - playerDefense;
 
 							system("CLS");
-
-							//If the player dies, game over
 
 							if (playerHealth <= 0)
 							{
@@ -345,25 +319,11 @@ void jungle()
 				else
 				{
 					cout << "The ground beneath you starts to break and you fall to your death." << endl;
-					gameOver();
-					exit(EXIT_SUCCESS);
 				}
 
 			}
-			else
-			{
-				cout << "As you walk down the right path, a trap crushes you to your death." << endl;
-				gameOver();
-				exit(EXIT_SUCCESS);
-			}
 
 		}
-	}
-	else
-	{
-		cout << "As you select your choice, the trap squeezes you even tighter and you get penetrated by wall spikes." << endl;
-		gameOver();
-		exit(EXIT_SUCCESS);
 	}
 }
 
