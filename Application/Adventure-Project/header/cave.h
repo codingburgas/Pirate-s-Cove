@@ -10,6 +10,7 @@ using namespace std;
 #ifndef global_variable
 #define global_variable
 wstring email;
+bool registration;
 #endif
 
 char key;
@@ -83,7 +84,9 @@ void cave()
 
 		cout << "Your health is now " << playerHealth << "!" << endl << endl;
 
-		itemToDB(emailStr, "item2", "talisman");
+		if (registration = true) {
+			itemToDB(emailStr, "item2", "talisman");
+		}
 
 		cout << "Continue (Enter)" << endl << endl;
 		key = _getch();
@@ -148,7 +151,9 @@ void cave()
 
 			cout << "After the fight, you feel exhausted. You sit on the ground when suddenly you find a pickaxe." << endl;
 
-			itemToDB(emailStr, "item3", "pickaxe");
+			if (registration == true) {
+				itemToDB(emailStr, "item3", "pickaxe");
+			}
 
 			playerDamage = 4;
 			cout << "Your damage is now " << playerDamage << "!" << endl << endl;
@@ -214,7 +219,9 @@ void cave()
 
 			cout << "You see a miner's helmet next to it. (DEF: +2)" << endl;
 
-			itemToDB(emailStr, "item4", "helmet");
+			if (registration == true) {
+				itemToDB(emailStr, "item4", "helmet");
+			}
 
 			playerDefense += 2;
 
@@ -325,7 +332,9 @@ void cave()
 					{
 						cout << "Congratulations! You killed the Zombie Miner! After his death, you pick up the" << endl;
 
-						itemToDB(emailStr, "item5", "zombie trophy");
+						if (registration = true) {
+							itemToDB(emailStr, "item5", "zombie trophy");
+						}
 
 						cout << "lost chest and escape by digging the nearby wall with your pickaxe!" << endl << endl;
 
