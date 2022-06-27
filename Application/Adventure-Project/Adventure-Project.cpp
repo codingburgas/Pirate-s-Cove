@@ -28,6 +28,9 @@ using namespace std;
 #define global_variable
 wstring email;
 bool registration;
+int playerHealth = 8;
+int playerDamage = 1;
+int playerDefense = 0;
 #endif
 
 string emailStr(email.begin(), email.end());
@@ -36,9 +39,6 @@ const int xStartPosition = 50;
 int colorSelectionVar;
 
 int playerLS = 0;
-int playerHealth = 8;
-int playerDamage = 1;
-int playerDefense = 0;
 bool winFight = false;
 bool isCaveExplored = false;
 bool isJungleExplored = false;
