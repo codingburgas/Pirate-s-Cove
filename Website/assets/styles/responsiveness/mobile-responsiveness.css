@@ -1,0 +1,23 @@
+/*Navigation bar responsiveness*/
+
+@media (max-width: 640px) {
+	.container {
+		overflow-x: hidden;
+	}
+
+	ul {
+		padding: 10px;
+	}
+
+	li {
+		padding: 15px;
+	    clear: both;
+	    display: inline-block;
+	    overflow: hidden;
+	    white-space: nowrap;		
+	}
+
+	.logo-li {
+		width: 18%;
+	}
+}

@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap');
+
+body {
+  margin: 0;
+  height: 100%;
+}
+
+h1 {
+  margin: 0;
+}
+
+nav {
+  border-bottom: 1px solid black;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;justify-content: space-around;  
+  background-color:white;
+}
+
+li {
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 1% 2%;
+  text-decoration: none;
+  font-family: 'Lato', sans-serif;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+a {
+  font-size: 1.1rem;
+  color: black;
+  text-decoration: none;
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+li > a:before{
+  content: '';
+  background: #54b3d6;
+  display: block;
+  bottom: -3px;
+  left: -5px;
+  width: 0;
+  position: absolute;
+  height: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+li > a:hover {
+ background-position: 0;
+}
+
+li > a:hover::before{
+  width: 120%;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  padding: 5px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.success {
+  text-align: center;
+  color: #ACD1AF;
+  font-weight: bold;
+  padding: 5px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.mail-sended {
+  margin: 0;
+  padding-top: 20px;
+  text-align: center;
+  color: #288C28;
+  font-size: 2em;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.logo {
+  width: 100%;
+  vertical-align: middle;
+  left: 0; 
+}
+
+.logo-li {
+  width: 4%;
+}
